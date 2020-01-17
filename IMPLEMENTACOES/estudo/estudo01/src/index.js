@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import OlaMundo from './components/OlaMundo';
-const root = document.getElementById('root');
+import IMC from './components/IMC';
 
-ReactDOM.render(<OlaMundo nome='Jefferson'/>,root);
+const root = document.getElementById('root');
+ReactDOM.render(
+    <div>
+        <IMC altura={1.84} peso={90}/>
+    </div>, root);
+
 
