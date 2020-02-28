@@ -2,9 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import OlaMundo from './components/OlaMundo'
+import Estudante from './components/Estudante'
 
 const root = document.getElementById('root')
-ReactDOM.render(<OlaMundo nome='Jefferson' sobrenome='de Carvalho'/>,root);
+//ReactDOM.render(<OlaMundo nome='Jefferson' sobrenome='de Carvalho'/>,root);
+ReactDOM.render(<Estudante 
+                           idade= {18}
+                           nome='Fulano'
+                           cidade='Pindamonhagaba'
+                           curso='Eng. Química'/>,root);
 
 // const textoJsx = 
 // <ul>
