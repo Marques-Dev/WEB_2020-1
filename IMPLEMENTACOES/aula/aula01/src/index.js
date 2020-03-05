@@ -1,16 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import OlaMundo from './components/OlaMundo'
-import Estudante from './components/Estudante'
+// import OlaMundo from './components/OlaMundo'
+// import Estudante from './components/Estudante'
+// import Professor from './components/Professor'
+//import {CapitaoAmerica as Ca,ViuvaNegra as Vn} from './components/Vingadores'
+import Casa from './components/Casa'
 
 const root = document.getElementById('root')
+
+ReactDOM.render(<Casa/>,root)
+
+// ReactDOM.render(
+//     <div>
+//         <Ca nome='Fulano'/>
+//         <Vn nome='Beltrano'/>
+//     </div>
+//     ,root
+// )
+
+// ReactDOM.render(
+//     <div>
+//     <Professor
+//         nome='Wladimir'
+//         area='Matemática'
+//         nivel='Doutorado'
+//         curso='Ciências da Computação'
+//     />
+//     <Estudante idade= {18}
+//                nome='Fulano'
+//                cidade='Pindamonhagaba'
+//                curso='Eng. Química'/>
+//     </div>
+//     ,root);
+
 //ReactDOM.render(<OlaMundo nome='Jefferson' sobrenome='de Carvalho'/>,root);
-ReactDOM.render(<Estudante 
-                           idade= {18}
-                           nome='Fulano'
-                           cidade='Pindamonhagaba'
-                           curso='Eng. Química'/>,root);
+// ReactDOM.render(<Estudante 
+//                            idade= {18}
+//                            nome='Fulano'
+//                            cidade='Pindamonhagaba'
+//                            curso='Eng. Química'/>,root);
 
 // const textoJsx = 
 // <ul>
@@ -23,7 +52,7 @@ ReactDOM.render(<Estudante
 // ReacDOM.render(textoJsx,root)
 
 // const root = document.getElementById('root');
-
+//============================
 // let ul = document.createElement('ul');
 
 // let li1 = document.createElement('li');

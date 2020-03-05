@@ -1,8 +1,14 @@
-/*import React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 
+import OlaMundo from './components/OlaMundo'
+
 const root = document.getElementById('root')
-ReactDOM.render(<h1>Olá mundo do React!</h1>,root)*/
+ReactDOM.render(<OlaMundo/>,root)
+
+
+
+/*ReactDOM.render(<h1>Olá mundo do React!</h1>,root)*/
 
 /*const root = document.getElementById('root');
 let h2 = document.createElement('h2');
@@ -31,17 +37,17 @@ ul.appendChild(li3)
 
 root.appendChild(ul)*/
 
-import React from 'react'
-import ReactDOM from 'react-dom'
+// import React from 'react'
+// import ReactDOM from 'react-dom'
 
-const root = document.getElementById('root')
+// const root = document.getElementById('root')
 
-const meujsx = 
-<ul>
-    <li>1-) Superman</li>
-    <li>2-) Bátima</li>
-    <li>3-) Wonder Woman</li>
-</ul>
+// const meujsx = 
+// <ul>
+//     <li>1-) Superman</li>
+//     <li>2-) Bátima</li>
+//     <li>3-) Wonder Woman</li>
+// </ul>
 
-ReactDOM.render(meujsx, root)
+// ReactDOM.render(meujsx, root)
 
