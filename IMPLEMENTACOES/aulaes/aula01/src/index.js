@@ -1,10 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import OlaMundo from './components/OlaMundo'
+import IMC from './components/imc/IMC'
 
 const root = document.getElementById('root')
-ReactDOM.render(<OlaMundo/>,root)
+ReactDOM.render(<IMC/>,root)
+
+//import OlaMundo from './components/OlaMundo'
+//import Estudante from './components/Estudante'
+//import {CapitaoAmerica as Ca,ViuvaNegra as Vn} from './components/Vingadores'
+//import Casa from './components/Casa'
+
+
+// ReactDOM.render(
+//                 <div>
+//                     <Ca nome='Jefferson'/>
+//                     <Vn nome='Wladimir'/>
+//                 </div>
+//                 ,root)
+
+// const textoJSX = <Estudante nome='Fulano'
+//                             idade='15'
+//                             curso='Engenharia de Software'
+//                             cidade='Quixadá'/> 
+// ReactDOM.render(textoJSX,root)
+
+
+//ReactDOM.render(<OlaMundo nome='Jefferson'/>,root)
 
 
 
