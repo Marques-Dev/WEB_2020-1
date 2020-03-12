@@ -1,15 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import CasaGenerico from './components/CasaGenerico'
+import Personagem from './components/Personagem'
+
+const root = document.getElementById('root')
+ReactDOM.render(
+    <CasaGenerico>
+        <Personagem nome='Arya' casa='Stark'/>
+        <Personagem nome='Robert' casa='Baratheon'/>
+        <Personagem nome='John' casa='Targaryan'/>
+        <Personagem nome='Sansa' casa='Stark'/>
+        <Personagem nome='Drogo' casa='??'/>
+    </CasaGenerico>
+    ,root
+)
+
+
 // import OlaMundo from './components/OlaMundo'
 // import Estudante from './components/Estudante'
 // import Professor from './components/Professor'
 //import {CapitaoAmerica as Ca,ViuvaNegra as Vn} from './components/Vingadores'
-import Casa from './components/Casa'
+//import Casa from './components/Casa'
 
-const root = document.getElementById('root')
 
-ReactDOM.render(<Casa/>,root)
+//ReactDOM.render(<Casa/>,root)
 
 // ReactDOM.render(
 //     <div>
