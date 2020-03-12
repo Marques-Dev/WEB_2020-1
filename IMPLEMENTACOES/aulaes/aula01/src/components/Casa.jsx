@@ -7,4 +7,5 @@ export default props=>
         <Personagem nome='Arya' casa='Stark'/>
         <Personagem nome='Robert' casa='Baratheon'/>
         <Personagem nome='John' casa='Stark' />
+        <Personagem nome='Sansa' casa='Stark' />
     </div>

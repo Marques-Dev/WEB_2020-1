@@ -1,17 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import IMC from './components/imc/IMC'
+import CasaGenerica from './components/CasaGenerica'
+import Personagem from './components/Personagem'
 
 const root = document.getElementById('root')
-ReactDOM.render(<IMC/>,root)
+ReactDOM.render(
+    <div>
+        <CasaGenerica casa='Stark'>
+            <Personagem nome='Arya' casa='Stark'/>
+            <Personagem nome='John' casa='Stark' />
+            <Personagem nome='Sansa' casa='Stark' />
+        </CasaGenerica>
+        <CasaGenerica casa='Baratheon'>
+            <Personagem nome='Robert' casa='Baratheon'/>
+            <Personagem nome='Jofrey' casa='Baratheon' />
+        </CasaGenerica>
+    </div>
+    ,root)
 
 //import OlaMundo from './components/OlaMundo'
 //import Estudante from './components/Estudante'
 //import {CapitaoAmerica as Ca,ViuvaNegra as Vn} from './components/Vingadores'
 //import Casa from './components/Casa'
-
-
+//import IMC from './components/imc/IMC'
+//ReactDOM.render(<IMC/>,root)
 // ReactDOM.render(
 //                 <div>
 //                     <Ca nome='Jefferson'/>
