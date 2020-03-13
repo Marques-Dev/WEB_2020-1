@@ -1,23 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CasaGenerica from './components/CasaGenerica'
-import Personagem from './components/Personagem'
-
+import IMCFuncao from './components/imc_funcao/IMCFuncao'
 const root = document.getElementById('root')
-ReactDOM.render(
-    <div>
-        <CasaGenerica casa='Stark'>
-            <Personagem nome='Arya' casa='Stark'/>
-            <Personagem nome='John' casa='Stark' />
-            <Personagem nome='Sansa' casa='Stark' />
-        </CasaGenerica>
-        <CasaGenerica casa='Baratheon'>
-            <Personagem nome='Robert' casa='Baratheon'/>
-            <Personagem nome='Jofrey' casa='Baratheon' />
-        </CasaGenerica>
-    </div>
-    ,root)
+ReactDOM.render(<IMCFuncao peso={89} altura={1.83}/>,root)
+
+
+
+
+// import CasaGenerica from './components/CasaGenerica'
+// import Personagem from './components/Personagem'
+
+// const root = document.getElementById('root')
+// ReactDOM.render(
+//     <div>
+//         <CasaGenerica casa='Stark' regiao='Norte' continente='Westeros' raca='humana'>
+//             <Personagem nome='Arya' />
+//             <Personagem nome='John' />
+//             <Personagem nome='Sansa' />
+//         </CasaGenerica>
+//         <CasaGenerica casa='Baratheon' regiao='Sul' continente='Westeros' raca='humana'>
+//             <Personagem nome='Robert' />
+//             <Personagem nome='Jofrey' />
+//         </CasaGenerica>
+//     </div>
+//     ,root)
 
 //import OlaMundo from './components/OlaMundo'
 //import Estudante from './components/Estudante'

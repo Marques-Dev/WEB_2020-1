@@ -1,31 +1,35 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import IMCFuncao from './components/imc_funcao/IMCFuncao'
-const root = document.getElementById('root')
-ReactDOM.render(
-    <div>
-        <IMCFuncao peso={89} altura={1.83}/>
-    </div>
-    ,root
-)
+import Pai from './components/filho_pai/Pai'
 
+const root = document.getElementById('root')
+ReactDOM.render(<Pai/>,root)
 
 /*ReactDOM.render(
     <div>
-        <CasaGenerico casa='Stark' regiao='Norte'>
+        <CasaGenerico casa='Stark' regiao='Norte' raca='Humana'>
             <Personagem nome='Arya'/>
             <Personagem nome='John'/>
             <Personagem nome='Sansa'/>
         </CasaGenerico>
-        <CasaGenerico casa='Baratheon' regiao='Sul'>
+        <CasaGenerico casa='Baratheon' regiao='Centro' raca='Elfo'>
             <Personagem nome='Robert'/>
         </CasaGenerico>
     </div>
     ,root
 )*/
 
+//import CasaGenerico from './components/CasaGenerico'
+//import Personagem from './components/Personagem'
 
+
+/*ReactDOM.render(
+    <div>
+        <IMCFuncao peso={89} altura={1.83}/>
+    </div>
+    ,root
+)*/
 // import OlaMundo from './components/OlaMundo'
 // import Estudante from './components/Estudante'
 // import Professor from './components/Professor'
