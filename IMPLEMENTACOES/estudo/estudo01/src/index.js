@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 //import Pai from './components/Pai';
 //import Cidades from './components/Cidades'; 
 //import MinhaClasse from './components/MinhaClasse';
-import Contador from './components/Contador';
+//import Contador from './components/Contador';
+import CidadeSimples from './components/CidadeSimples'
 
 const root = document.getElementById('root');
 ReactDOM.render(
     <div>
-        <Contador/>
+        <CidadeSimples/>
     </div>, root);
 
 
