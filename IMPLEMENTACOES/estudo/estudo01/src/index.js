@@ -11,15 +11,12 @@ import ReactDOM from 'react-dom';
 import Curso from './components/exe/Curso'
 import Turma from './components/exe/Turma'
 import Estudante from './components/exe/Estudante'
+import IMCPai from './components/exe/IMCPai'
 
 const root = document.getElementById('root');
 ReactDOM.render(
     <div>
-        <Curso curso='SI'>
-            <Turma turma='FUP' curso='SI'>
-                <Estudante nome='Jefferson'/>
-            </Turma>
-        </Curso>
+        <IMCPai/>
     </div>, root);
 
 

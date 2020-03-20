@@ -31,20 +31,11 @@ export default class Calculator extends Component{
     setOperation(operation){
         //console.log('operação: '+operation)
         if(this.state.current === 0)
-            // se eu ainda estiver no índice 0 do meu array de valores
-            // devo apagar meu display e setar o índice para 1,
-            // além de armazenar a operação
             this.setState({operation,current:1,clearDisplay:true})
         else{
-            let equals = false
-            // se a opeção selecionada for o igual, seto a variável
-            // equal pra true (eu finalizei o cálculo e devo mostrar algo)
-            if(operation === '=')
-                equals = true
+            const equals = operation === '='
             const currentOperation = this.state.operation
             
-            // se forem uma das operações matemáticas abaixo, eu efetuo o 
-            // cálculo e armazeno no índice 0 e depois zero o índice 1
             const values = [...this.state.values]
             if(currentOperation === '+'){
                 values[0] = values[0]+values[1]
@@ -58,11 +49,11 @@ export default class Calculator extends Component{
             values[1]=0
             
             this.setState({
-                displayValue:values[0], // mostre o valor do índice 0
-                operation: equals ? null : operation, // se equal for verdadeiro, não tem operação
-                current: equals ? 0 : 1, // algum cálculo foi feito e deve-se voltar ao 0
-                clearDisplay: !equals, // não limpa o display se o equals for true
-                values // copia novos valores
+                displayValue:values[0],
+                operation: equals ? null : operation,
+                current: equals ? 0 : 1,
+                clearDisplay: !equals,
+                values
             })
 
         }
