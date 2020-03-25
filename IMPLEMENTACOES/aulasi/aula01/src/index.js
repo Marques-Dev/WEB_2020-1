@@ -1,12 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Pai from './components/filho_pai/Pai'
-import MinhaClasse from './components/classes/MinhaClasse'
+import IMCPai from './trab2/questao03/IMCPai'
 
 const root = document.getElementById('root')
-ReactDOM.render(<MinhaClasse nome='Goku'/>,root)
+ReactDOM.render(
+    <IMCPai/>
+    ,root)
 
+//import Curso from './trab2/questao02/Curso'
+/*import Curso from './trab2/questao01/Curso'
+import Turma from './trab2/questao01/Turma'
+import Estudante from './trab2/questao01/Estudante'
+*/
+/*ReactDOM.render(
+    <Curso curso='Sistemas de Informação'>
+        <Turma turma='FUP' curso='Sistemas de Informação'>
+            <Estudante nome='Fulano'/>
+            <Estudante nome='Sicrano'/>
+        </Turma>
+        <Turma turma='WEB' curso='Sistemas de Informação'>
+        <Estudante nome='Beltrano'/>
+        </Turma>
+    </Curso>
+    ,root)*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import Pai from './components/filho_pai/Pai'
+// import MinhaClasse from './components/classes/MinhaClasse'
 /*ReactDOM.render(
     <div>
         <CasaGenerico casa='Stark' regiao='Norte' raca='Humana'>

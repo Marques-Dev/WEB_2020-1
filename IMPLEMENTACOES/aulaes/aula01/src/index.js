@@ -1,13 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import IMCFuncao from './components/imc_funcao/IMCFuncao'
+import CidadeSimples from './components/CidadeSimples'
+
 const root = document.getElementById('root')
-ReactDOM.render(<IMCFuncao peso={89} altura={1.83}/>,root)
+ReactDOM.render(
+    <CidadeSimples/>
+    ,root)
 
-
-
-
+//import MinhaClasse from './components/MinhaClasse'
+//import Pai from './components/Pai'
+//import IMCPai from './trab2/questao03/IMCPai'
+/*
+    <Curso curso='Sistemas de Informação'>
+        <Turma turma='FUP' curso='Sistemas de Informação'>
+            <Estudante nome='Jefferson'/>
+            <Estudante nome='Thomas'/>
+        </Turma>
+        <Turma turma='ES' curso='Sistemas de Informação'>
+        <Estudante nome='Luciana'/>
+        </Turma>
+    </Curso>
+*/
+/*import Curso from './trab2/questao01/Curso'
+import Turma from './trab2/questao01/Turma'
+import Estudante from './trab2/questao01/Estudante'*/
+//import IMCFuncao from './components/imc_funcao/IMCFuncao'
 // import CasaGenerica from './components/CasaGenerica'
 // import Personagem from './components/Personagem'
 
