@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import CidadeSimples from './components/CidadeSimples'
+import Contador from './hooks/Contador'
 
 const root = document.getElementById('root')
 ReactDOM.render(
-    <CidadeSimples/>
+    <Contador/>
     ,root)
 
+//import CidadeSimples from './components/CidadeSimples'
 //import MinhaClasse from './components/MinhaClasse'
 //import Pai from './components/Pai'
 //import IMCPai from './trab2/questao03/IMCPai'
