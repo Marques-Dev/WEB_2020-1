@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Contador from './hooks/Contador'
+import VotacaoCidades from './votacao/VotacaoCidades'
 
 const root = document.getElementById('root')
 ReactDOM.render(
-    <Contador/>
+    <VotacaoCidades/>
     ,root)
 
+//import VotaCidade from './votacao/VotaCidade'
+//import Contador from './hooks/Contador'
 //import CidadeSimples from './components/CidadeSimples'
 //import MinhaClasse from './components/MinhaClasse'
 //import Pai from './components/Pai'
