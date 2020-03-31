@@ -1,13 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import VotacaoCidades from './votacao/VotacaoCidades'
+import VotacaoCidadesComClasse from './votacao/VotacaoCidadesComClasse.jsx'
 
 const root = document.getElementById('root')
 ReactDOM.render(
-    <VotacaoCidades/>
+    <VotacaoCidadesComClasse/>
     ,root)
 
+//import VotacaoCidadesClasse from './votacao/VotacaoCidadesClasse'
 //import VotaCidade from './votacao/VotaCidade'
 //import Contador from './hooks/Contador'
 //import CidadeSimples from './components/CidadeSimples'
