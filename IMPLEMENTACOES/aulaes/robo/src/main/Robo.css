@@ -1,0 +1,13 @@
+.robo{
+    height: 320px;
+    width: 235px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color:azure;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 50px 50px 50px;
+}
+
+
