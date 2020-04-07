@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Index extends Component {
+export default class List extends Component {
     render() {
         return (
             <div>
-                <p>Welcome to Index Component!!</p>
+                <p>List Component!!</p>
             </div>
         )
     }

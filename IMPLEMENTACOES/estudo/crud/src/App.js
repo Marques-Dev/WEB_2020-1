@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Create from './components/Create';
 import Edit from './components/Edit';
-import Index from './components/Index';
+import List from './components/List';
+import Home from './components/Home';
 
 export default class App extends Component {
   render() {
@@ -22,16 +23,17 @@ export default class App extends Component {
                   <Link to={'/create'} className="nav-link">Create</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/index'} className="nav-link">Index</Link>
+                  <Link to={'/list'} className="nav-link">List</Link>
                 </li>
               </ul>
             </div>
           </nav>
           <h2>Projeto CRUD</h2> <br />
           <Switch>
-            <Route exact path='/create' component={Create} />
+            <Route exact path='/' component={Home} />
+            <Route path='/create' component={Create} />
             <Route path='/edit/:id' component={Edit} />
-            <Route path='/index' component={Index} />
+            <Route path='/list' component={List} />
           </Switch>
         </div>
       </Router>
