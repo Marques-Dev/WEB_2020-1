@@ -48,12 +48,12 @@ export default class Edit extends Component {
 
     onSubmit(e){
         e.preventDefault()
-        const estudanteAtualiazado = 
+        const estudanteAtualizado = 
             {nome:this.state.nome,
             curso:this.state.curso,
             IRA:this.state.IRA}
 
-            axios.put('http://localhost:3001/estudantes/'+this.props.match.params.id,estudanteAtualiazado)
+            axios.put('http://localhost:3001/estudantes/'+this.props.match.params.id,estudanteAtualizado)
             .then(
                 res=>{
                     //console.log(res.data)
@@ -61,7 +61,6 @@ export default class Edit extends Component {
                 }
             )
             .catch(error=>console.log(error))
-
         
     }
 

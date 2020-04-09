@@ -36,7 +36,7 @@ export default class Create extends Component {
         axios.post('http://localhost:3001/estudantes',novoEstudate)
         .then(
             (res)=>{
-                console.log(res.data.id)
+                console.log('Criado: id '+ res.data.id)
             }
         )
         .catch(

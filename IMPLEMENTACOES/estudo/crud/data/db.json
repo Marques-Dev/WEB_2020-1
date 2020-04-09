@@ -7,37 +7,10 @@
       "id": 1
     },
     {
-      "nome": "Thomas de Carvalho",
-      "curso": "SI",
-      "IRA": 7.5,
-      "id": 2
-    },
-    {
-      "nome": "Fulano",
-      "curso": "SI",
-      "IRA": 4.5,
-      "id": 3
-    },
-    {
-      "nome": "Bruce Wayne",
-      "curso": "ES",
-      "IRA": 5.7,
+      "nome": "Teste C",
+      "curso": "C",
+      "IRA": "9",
       "id": 4
-    },
-    {
-      "nome": "Rainara",
-      "curso": "Literatura",
-      "IRA": "8.2",
-      "id": 5
-    },
-    {
-      "nome": "Benjamin Franklin",
-      "curso": "DD",
-      "IRA": "10",
-      "id": 6
-    },
-    {
-      "id": 7
     }
   ]
 }
