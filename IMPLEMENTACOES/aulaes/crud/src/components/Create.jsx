@@ -53,9 +53,6 @@ export default class Create extends Component {
 
     render() {
         return (
-
-        
-
             <div style={{ marginTop: 10 }}>
                 <h3>Criar Estudante</h3>
                 <form onSubmit={this.onSubmit}>

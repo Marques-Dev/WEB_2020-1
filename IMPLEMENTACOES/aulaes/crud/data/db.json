@@ -23,6 +23,12 @@
       "curso": "Design Digital",
       "IRA": "8.8",
       "id": 4
+    },
+    {
+      "nome": "Beltrano",
+      "curso": "Administração",
+      "IRA": "8.6",
+      "id": 5
     }
   ]
 }
