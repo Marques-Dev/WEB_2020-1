@@ -11,6 +11,12 @@
       "curso": "C",
       "IRA": "9",
       "id": 4
+    },
+    {
+      "nome": "Sicrano ",
+      "curso": "SI",
+      "IRA": "8",
+      "id": 5
     }
   ]
 }

@@ -8,6 +8,7 @@ export default class List extends Component {
     constructor(props){
         super(props)
         this.state = {estudantes:[]}
+        this.apagarElementoPorId = this.apagarElementoPorId.bind(this)
     }
 
     componentDidMount(){
@@ -30,9 +31,19 @@ export default class List extends Component {
         if(!this.state.estudantes) return
         return this.state.estudantes.map(
             (est,i)=>{
-                return <TableRow estudante={est} key={i}/>
+                return <TableRow estudante={est} key={i} apagarElementoPorId={this.apagarElementoPorId}/>
             }
         )
+    }
+
+    apagarElementoPorId(id){
+        let tempEstudantes = this.state.estudantes
+        for(let i=0;i<tempEstudantes.length;i++){
+            if(tempEstudantes[i].id === id){
+                tempEstudantes.splice(i,1)
+            } 
+        }
+        this.setState({estudantes:tempEstudantes})
     }
 
     render() {

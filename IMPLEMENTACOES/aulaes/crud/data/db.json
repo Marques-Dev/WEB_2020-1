@@ -1,34 +1,16 @@
 {
   "estudantes": [
     {
-      "id": 1,
-      "nome": "Jefferson",
-      "curso": "Sistemas de Informação",
-      "IRA": 8
+      "nome": "Fulano de Tal",
+      "curso": "Engenharia da Computação",
+      "IRA": 7.5,
+      "id": 1
     },
     {
       "id": 2,
       "nome": "Pedro",
       "curso": "Engenharia de Software",
       "IRA": 9
-    },
-    {
-      "nome": "Fulano",
-      "curso": "Ciência da Computação",
-      "IRA": "5",
-      "id": 3
-    },
-    {
-      "nome": "Sicrano ",
-      "curso": "Design Digital",
-      "IRA": "8.8",
-      "id": 4
-    },
-    {
-      "nome": "Beltrano",
-      "curso": "Administração",
-      "IRA": "8.6",
-      "id": 5
     }
   ]
 }
