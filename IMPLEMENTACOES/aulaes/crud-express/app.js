@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var users = require('./routes/users');
+var EstudanteRoute = require('./routes/EstudanteRoutes')
 
 var app = express();
 
@@ -12,5 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser())
 
 app.use('/users', users);
+app.use('/estudantes',EstudanteRoute)
 
 module.exports = app;
