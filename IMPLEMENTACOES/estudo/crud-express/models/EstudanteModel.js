@@ -8,3 +8,4 @@ class EstudanteModel{
 }
 
 module.exports = EstudanteModel
+//export default EstudanteModel
