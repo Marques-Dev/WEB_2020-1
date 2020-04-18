@@ -33,10 +33,11 @@ export default class Create extends Component {
                               curso:this.state.curso,
                               IRA:this.state.IRA}
 
-        axios.post('http://localhost:3001/estudantes',novoEstudate)
+        axios.post('http://localhost:3002/estudantes/register',novoEstudate)
+        //axios.post('http://localhost:3001/estudantes',novoEstudate)
         .then(
             (res)=>{
-                console.log('Criado: id '+ res.data.id)
+                console.log('Criado: id '+ res.data._id)
             }
         )
         .catch(

@@ -18,7 +18,7 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
+console.log('Server is up and running.')
 var server = http.createServer(app);
 
 /**

@@ -1,7 +1,11 @@
 const EstudanteModel = require('../models/EstudanteModel')
 
-let estudantes = []
-let _id = 0
+let estudantes = [
+    {_id:0,nome:'Jefferson',curso:'SI',IRA:9.8},
+    {_id:1,nome:'Thomas',curso:'SI',IRA:5.5},
+    {_id:2,nome:'Luciana',curso:'SI',IRA:7}
+]
+let _id = 3
 
 class EstudanteService{
 
