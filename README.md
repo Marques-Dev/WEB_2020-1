@@ -7,8 +7,8 @@
 		<td>
 			RESOLUÇÃO DO TRABALHO 2
 		</td>
-			https://youtu.be/ItmfVty5I6s
 		<td>
+			https://youtu.be/ItmfVty5I6s
 		</td>
 	</tr>
 	<tr>
