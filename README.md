@@ -2,8 +2,27 @@
 
 <h1>LINKS DAS AULAS DE WEB PARA SI E ES</h1>
 
-RESOLUÇÃO DO TRABALHO 2 : https://youtu.be/ItmfVty5I6s
-AULA 01 : https://youtu.be/9KLmrebYlNs
+<table>
+	<tr>
+		<td>
+			RESOLUÇÃO DO TRABALHO 2
+		</td>
+			https://youtu.be/ItmfVty5I6s
+		<td>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 01
+		</td>
+			https://youtu.be/9KLmrebYlNs
+		<td>
+		</td>
+	</tr>
+</table>
+
+ : 
+
 AULA 02 : https://youtu.be/MCFlV2qFt6I
 AULA 03 : https://youtu.be/zsAsl8MG1_w
 RESOLUÇÃO VOTAÇÃO DE CIDADES : https://youtu.be/GGjFMcZnJ6A
