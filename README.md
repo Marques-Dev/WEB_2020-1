@@ -5,7 +5,7 @@
 <table>
 	<tr>
 		<td>
-			AULA 01
+			AULA 00
 		</td>
 		<td>
 			https://youtu.be/ItmfVty5I6s
@@ -88,7 +88,7 @@
 			https://youtu.be/uTGQ5J4ZRgs
 		</td>
 		<td>
-			PROJETO CRUD, preparando a interface e links
+			PROJETO CRUD: preparando a interface e links
 		</td>
 	</tr>
 	<tr>
@@ -99,7 +99,7 @@
 			https://youtu.be/6w0KJ9DO8KM
 		</td>
 		<td>
-			PROJETO CRUD, a funcionalidade Create
+			PROJETO CRUD: a funcionalidade Create
 		</td>
 	</tr>
 	<tr>
@@ -110,7 +110,7 @@
 			https://youtu.be/NZ83flGr4do
 		</td>
 		<td>
-			PROJETO CRUD, o JSON-SERVER
+			PROJETO CRUD: o JSON-SERVER
 		</td>
 	</tr>
 	<tr>
@@ -121,7 +121,7 @@
 			https://youtu.be/ans1sTxJxFg
 		</td>
 		<td>
-			PROJETO CRUD, a funcionalidade List
+			PROJETO CRUD: a funcionalidade List
 		</td>
 	</tr>
 	<tr>
@@ -132,7 +132,7 @@
 			https://youtu.be/aLGSHo3keSE
 		</td>
 		<td>
-			PROJETO CRUD, a funcionalidade Edit e Delete
+			PROJETO CRUD: a funcionalidade Edit e Delete
 		</td>
 	</tr>
 	<tr>
@@ -143,7 +143,7 @@
 			https://youtu.be/A8tSyor2RTI
 		</td>
 		<td>
-			Servidor Express Puro, introdução ao Express e Instalação.
+			Servidor Express Puro: introdução ao Express e Instalação.
 		</td>
 	</tr>
 	<tr>
@@ -154,7 +154,7 @@
 			https://youtu.be/rEcCgTZkWQw
 		</td>
 		<td>
-			Servidor Express Puro, Listar e Criar Estudante
+			Servidor Express Puro: Listar e Criar Estudante
 		</td>
 	</tr>
 	<tr>
@@ -165,7 +165,7 @@
 			https://youtu.be/pUegq6xZ96k
 		</td>
 		<td>
-			Servidor Express Puro, Apagar, Atualizar e Recuperar
+			Servidor Express Puro: Apagar, Atualizar e Recuperar
 		</td>
 	</tr>
 	<tr>
