@@ -143,7 +143,7 @@
 			https://youtu.be/A8tSyor2RTI
 		</td>
 		<td>
-			Servidor Express Puro
+			Servidor Express Puro, introdução ao Express e Instalação.
 		</td>
 	</tr>
 	<tr>
@@ -154,7 +154,7 @@
 			https://youtu.be/rEcCgTZkWQw
 		</td>
 		<td>
-			Servidor Express Puro
+			Servidor Express Puro, Listar e Criar Estudante
 		</td>
 	</tr>
 	<tr>
@@ -165,7 +165,7 @@
 			https://youtu.be/pUegq6xZ96k
 		</td>
 		<td>
-			Servidor Express Puro
+			Servidor Express Puro, Apagar, Atualizar e Recuperar
 		</td>
 	</tr>
 	<tr>
