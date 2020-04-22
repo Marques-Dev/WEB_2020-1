@@ -179,6 +179,17 @@
 			React + Express
 		</td>
 	</tr>
+	<tr>
+		<td>
+			AULA 08 - PARTE 01
+		</td>
+		<td>
+			https://youtu.be/gEdZ886LLOA
+		</td>
+		<td>
+			Introdução ao MongoDB. 
+		</td>
+	</tr>
 </table>
 
   
