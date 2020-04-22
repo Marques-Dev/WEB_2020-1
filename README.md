@@ -4,7 +4,7 @@
 
 <table>
 	<tr>
-		<td colspan="3" align="center">Introdução ao React</td>
+		<td colspan="3" align="center"><b>Introdução ao React</b></td>
 	</tr>
 	<tr>
 		<td>
