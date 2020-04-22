@@ -84,6 +84,9 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="3" align="center"><b>Projeto CRUD + Json-Server</b></td>
+	</tr>
+	<tr>
 		<td>
 			AULA 05 - PARTE 01
 		</td>
@@ -139,6 +142,9 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="3" align="center"><b>Servidor Express Puro</b></td>
+	</tr>
+	<tr>
 		<td>
 			AULA 06 - PARTE 01
 		</td>
@@ -181,6 +187,9 @@
 		<td>
 			React + Express
 		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><b>Introdução ao MongoDB</b></td>
 	</tr>
 	<tr>
 		<td>
