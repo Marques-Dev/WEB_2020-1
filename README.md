@@ -3,6 +3,9 @@
 <h1>LINKS DAS AULAS DE WEB PARA SI E ES</h1>
 
 <table>
+	<thead>
+		<th colspan="3">Introdução ao React</th>
+	</thead
 	<tr>
 		<td>
 			AULA 00
