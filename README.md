@@ -2,7 +2,7 @@
 
 <h1>LINKS DAS AULAS DE WEB PARA SI E ES</h1>
 
-<h2><a link="https://www.youtube.com/playlist?list=PL2R4y_yfi1pc9RLA6E7hLwRolKqix7HPv">PLAYLIST WEB 2020.1</a></h2>
+<a href="https://www.youtube.com/playlist?list=PL2R4y_yfi1pc9RLA6E7hLwRolKqix7HPv">PLAYLIST WEB 2020.1</a>
 
 <table>
 	<tr>
