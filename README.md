@@ -215,6 +215,17 @@
 			Busca com critérios.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			AULA 08 - EXTRA
+		</td>
+		<td>
+			https://youtu.be/mQnayBwyTAg
+		</td>
+		<td>
+			Solução do problema de instalação do MongoDB no Ubuntu.
+		</td>
+	</tr>
 </table>
 
   
