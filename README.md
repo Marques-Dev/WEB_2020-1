@@ -204,6 +204,17 @@
 			Introdução ao MongoDB. 
 		</td>
 	</tr>
+	<tr>
+		<td>
+			AULA 08 - PARTE 02
+		</td>
+		<td>
+			https://youtu.be/vHcyfmemRO0
+		</td>
+		<td>
+			Busca com critérios.
+		</td>
+	</tr>
 </table>
 
   
