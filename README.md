@@ -226,6 +226,17 @@
 			Solução do problema de instalação do MongoDB no Ubuntu.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			AULA 08 - PARTE 03
+		</td>
+		<td>
+			https://youtu.be/EKtEhwea0r0
+		</td>
+		<td>
+			Apagar e Editar documentos
+		</td>
+	</tr>
 </table>
 
   
