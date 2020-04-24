@@ -43,7 +43,7 @@
 	</tr>
 	<tr>
 		<td>
-			AULA 03
+			AULA 03 - PARTE 01
 		</td>
 		<td>
 			https://youtu.be/zsAsl8MG1_w
@@ -54,7 +54,7 @@
 	</tr>
 	<tr>
 		<td>
-			AULA 03
+			AULA 03 - PARTE 02
 		</td>
 		<td>
 			https://youtu.be/GGjFMcZnJ6A
@@ -65,7 +65,7 @@
 	</tr>
 	<tr>
 		<td>
-			AULA 03 
+			AULA 03 - FINAL
 		</td>
 		<td>
 			https://youtu.be/DXh1Xi7INnw
@@ -212,7 +212,7 @@
 			https://youtu.be/vHcyfmemRO0
 		</td>
 		<td>
-			Busca com critérios.
+			Busca com critérios
 		</td>
 	</tr>
 	<tr>
@@ -223,7 +223,7 @@
 			https://youtu.be/mQnayBwyTAg
 		</td>
 		<td>
-			Solução do problema de instalação do MongoDB no Ubuntu.
+			Solução do problema de instalação do MongoDB no Ubuntu
 		</td>
 	</tr>
 	<tr>
