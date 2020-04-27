@@ -4,6 +4,8 @@
 
 <a href="https://www.youtube.com/playlist?list=PL2R4y_yfi1pc9RLA6E7hLwRolKqix7HPv">PLAYLIST WEB 2020.1</a>
 
+Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um formulário RÁPIDO de feedback sobre as videoaulas!
+
 <table>
 	<tr>
 		<td colspan="3" align="center"><b>Introdução ao React</b></td>
@@ -235,6 +237,17 @@
 		</td>
 		<td>
 			Apagar e Editar documentos
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 08 - FINAL
+		</td>
+		<td>
+			https://youtu.be/EKtEhwea0r0
+		</td>
+		<td>
+			Junções
 		</td>
 	</tr>
 </table>
