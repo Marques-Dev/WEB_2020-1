@@ -250,7 +250,23 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Junções
 		</td>
 	</tr>
+	<tr>
+		<td colspan="3" align="center"><b>Express + Mongoose</b></td>
+	</tr>
+	<tr>
+		<td>
+			AULA 09 - PARTE 01
+		</td>
+		<td>
+			https://youtu.be/xOKlZsNdvdI
+		</td>
+		<td>
+			Express + Mongoose. Inserir e Listar.
+		</td>
+	</tr>
+	
 </table>
+
 
   
 
