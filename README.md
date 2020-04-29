@@ -264,7 +264,18 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Express + Mongoose. Inserir e Listar.
 		</td>
 	</tr>
-	
+	<tr>
+		<td>
+			AULA 09 - FINAL
+		</td>
+		<td>
+			https://youtu.be/oehhzAYFLME
+		</td>
+		<td>
+			Express + Mongoose. Editar, apagar e recuperar.
+		</td>
+	</tr>
+
 </table>
 
 
