@@ -56,7 +56,7 @@ export default class List extends Component {
 
                 return <TableRow pokemon={pokemon}
                     key={i}
-                    id={(this.state.pagina * this.state.offset) + (i + 1)}
+                    position={(this.state.pagina * this.state.offset) + (i + 1)}
                 />
             }
         )
@@ -89,8 +89,8 @@ export default class List extends Component {
                 <table className="table table-striped" style={{ marginTop: 20, width:'80%'}}>
                     <thead>
                         <tr>
-                            <th style={{ textAlign: "center" }}>ID</th>
-                            <th style={{ textAlign: "center" }}>Nome</th>
+                            <th style={{ textAlign: "center" ,width:'20%'}}>ID</th>
+                            <th style={{ textAlign: "center", width:'20%'}}>Nome</th>
                             <th></th>
                             <th></th>
                         </tr>
