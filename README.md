@@ -277,7 +277,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			AULA 10 - React + Express + Mongoose
+			AULA 10
 		</td>
 		<td>
 			https://youtu.be/L4IHdgmunqA
