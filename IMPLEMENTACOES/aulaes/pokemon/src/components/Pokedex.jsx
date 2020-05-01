@@ -27,7 +27,7 @@ export default class List extends Component {
     }
 
     getPokemonData(url) {
-        sessionStorage.setItem('url',url)
+        sessionStorage.setItem('url', url)
         axios.get(url)
             .then(
                 (res) => {
@@ -55,8 +55,8 @@ export default class List extends Component {
         if (!this.state.pokemons) return
         return this.state.pokemons.map(
             (pokemon, i) => {
-
-                return <TableRow pokemon={pokemon}
+                return <TableRow
+                    pokemon={pokemon}
                     key={i}
                     position={(this.state.pagina * this.state.offset) + (i + 1)}
                 />
@@ -85,8 +85,8 @@ export default class List extends Component {
             return (
                 <tbody>
                     <tr>
-                        <td style={{ textAlign: "center", verticalAlign: "middle", paddingTop:'20px' }} colSpan='4'>
-                            <Spinner animation="border"/><h1> Loading...</h1>
+                        <td style={{ textAlign: "center", verticalAlign: "middle", paddingTop: '20px' }} colSpan='4'>
+                            <Spinner animation="border" /><h1> Loading...</h1>
                         </td>
                     </tr>
                 </tbody>
@@ -95,26 +95,26 @@ export default class List extends Component {
 
         return (
             <>
-            <tbody>
-                {this.montarTabela()}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan='4' style={{ textAlign: "center", verticalAlign: "middle" }}>
-                        <button className="btn btn-secondary"
-                            disabled={!this.state.previous}
-                            onClick={() => this.anterior()}>
-                            Anterior
+                <tbody>
+                    {this.montarTabela()}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan='4' style={{ textAlign: "center", verticalAlign: "middle" }}>
+                            <button className="btn btn-secondary"
+                                disabled={!this.state.previous}
+                                onClick={() => this.anterior()}>
+                                Anterior
                                 </button>
-                        <button className="btn btn-secondary"
-                            style={{ marginLeft: 20 }}
-                            disabled={!this.state.next}
-                            onClick={() => this.proximo()}>
-                            Próximo
+                            <button className="btn btn-secondary"
+                                style={{ marginLeft: 20 }}
+                                disabled={!this.state.next}
+                                onClick={() => this.proximo()}>
+                                Próximo
                                 </button>
-                    </td>
-                </tr>
-            </tfoot>
+                        </td>
+                    </tr>
+                </tfoot>
             </>
         )
     }
@@ -127,8 +127,8 @@ export default class List extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexDirection: 'column'
-            }}> 
-                
+            }}>
+
                 <h3>Pokédex</h3> ({this.state.count} Pokemons)
                 <table className="table table-striped table-sm table-bordered" style={{ marginTop: 20, width: '80%' }}>
                     <thead className="thead-dark">
