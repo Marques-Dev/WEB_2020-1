@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import Spinner from 'react-bootstrap/Spinner'
 import TableRow from './PokedexTableRow'
 
 export default class List extends Component {
@@ -14,19 +14,20 @@ export default class List extends Component {
             previous: '',
             count: 0,
             pagina: 0,
-            offset: 20
+            offset: 20,
+            loading: false
         }
-        
+
     }
 
     componentDidMount() {
         //console.log('componentDidMount')
-        const url = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20'
+        const url = sessionStorage.getItem('url')
         this.getPokemonData(url)
     }
 
-    getPokemonData(url){
-        
+    getPokemonData(url) {
+        sessionStorage.setItem('url',url)
         axios.get(url)
             .then(
                 (res) => {
@@ -34,7 +35,8 @@ export default class List extends Component {
                         count: res.data.count,
                         pokemons: res.data.results,
                         previous: res.data.previous,
-                        next: res.data.next
+                        next: res.data.next,
+                        loading: false
                     })
                     /*console.log(url)
                     console.log(this.state.previous)
@@ -62,63 +64,82 @@ export default class List extends Component {
         )
     }
 
-    proximo(){
-       //console.log('proximo')
-       if(this.state.next){
-           this.setState({pagina:this.state.pagina+1})
-           this.getPokemonData(this.state.next)
-       }
+    proximo() {
+        //console.log('proximo')
+        if (this.state.next) {
+            this.setState({ pagina: this.state.pagina + 1, loading: true })
+            this.getPokemonData(this.state.next)
+        }
     }
 
-    anterior(){
-       //console.log('anterior')
-       if(this.state.previous){
-           this.setState({pagina:this.state.pagina-1})
-           this.getPokemonData(this.state.previous)
-       }
+    anterior() {
+        //console.log('anterior')
+        if (this.state.previous) {
+            this.setState({ pagina: this.state.pagina - 1, loading: true })
+            this.getPokemonData(this.state.previous)
+        }
+    }
+
+    renderizarConteudo() {
+        if (this.state.loading) {
+            return (
+                <tbody>
+                    <tr>
+                        <td style={{ textAlign: "center", verticalAlign: "middle", paddingTop:'20px' }} colSpan='4'>
+                            <Spinner animation="border"/><h1> Loading...</h1>
+                        </td>
+                    </tr>
+                </tbody>
+            )
+        }
+
+        return (
+            <>
+            <tbody>
+                {this.montarTabela()}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan='4' style={{ textAlign: "center", verticalAlign: "middle" }}>
+                        <button className="btn btn-secondary"
+                            disabled={!this.state.previous}
+                            onClick={() => this.anterior()}>
+                            Anterior
+                                </button>
+                        <button className="btn btn-secondary"
+                            style={{ marginLeft: 20 }}
+                            disabled={!this.state.next}
+                            onClick={() => this.proximo()}>
+                            Próximo
+                                </button>
+                    </td>
+                </tr>
+            </tfoot>
+            </>
+        )
     }
 
     render() {
         return (
-            <div style={{ marginTop: 10, 
-                        display:'flex', 
-                        alignItems:'center', 
-                        justifyContent:'center', 
-                        flexDirection:'column' }}>
+            <div style={{
+                marginTop: 10,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column'
+            }}> 
+                
                 <h3>Pokédex</h3> ({this.state.count} Pokemons)
-                <table className="table table-striped" style={{ marginTop: 20, width:'80%'}}>
-                    <thead>
+                <table className="table table-striped table-sm table-bordered" style={{ marginTop: 20, width: '80%' }}>
+                    <thead className="thead-dark">
                         <tr>
-                            <th style={{ textAlign: "center" ,width:'20%'}}>ID</th>
-                            <th style={{ textAlign: "center", width:'20%'}}>Nome</th>
-                            <th></th>
-                            <th></th>
+                            <th style={{ textAlign: "center", width: '20%' }}>ID</th>
+                            <th style={{ textAlign: "center", width: '20%' }}>Nome</th>
+                            <th colSpan='2'></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {this.montarTabela()}
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colSpan='4' style={{ textAlign: "center", verticalAlign: "middle" }}>
-                                <button className="btn btn-secondary" 
-                                        disabled={!this.state.previous}
-                                        onClick={()=>this.anterior()}>
-                                            Anterior
-                                </button>
-                                <button className="btn btn-secondary" 
-                                        style={{ marginLeft: 20 }} 
-                                        disabled={!this.state.next}
-                                        onClick={()=>this.proximo()}>
-                                            Próximo
-                                </button>
-                            </td>
-                        </tr>
-                    </tfoot>
-
+                    {this.renderizarConteudo()}
                 </table>
-
-
             </div>
         )
     }

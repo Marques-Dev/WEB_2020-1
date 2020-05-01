@@ -4,8 +4,14 @@ import { BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom'
 
 import List from './components/Pokedex'
 import Home from './components/Home'
+import Info from './components/PokemonInfo'
 
 export default class App extends Component{
+
+  constructor(props){
+    super(props)
+    sessionStorage.setItem('url','https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
+  }
 
   render(){
     return(
@@ -19,7 +25,7 @@ export default class App extends Component{
                   <Link to={'/'} className='nav-link'>Home</Link>  
                 </li>
                 <li>
-                  <Link to={'/list'} className='nav-link'>List</Link>  
+                  <Link to={'/list'} className='nav-link'>Pokédex</Link>  
                 </li>
               </ul>
             </div>
@@ -27,6 +33,7 @@ export default class App extends Component{
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/list' component={List}/>
+            <Route path='/info/:id' component={Info}/>
           </Switch>
         </div>
       </Router>

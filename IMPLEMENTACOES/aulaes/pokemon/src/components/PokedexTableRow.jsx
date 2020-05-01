@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-//import { Link } from 'react-router-dom'
+import missingno from '../img/missingno.png'
+import { Link } from 'react-router-dom'
 //import axios from 'axios'
 
 export default class TableRow extends Component {
@@ -15,16 +16,16 @@ export default class TableRow extends Component {
         return (
             <tr>
                 <td style={{ textAlign: "center" , verticalAlign: "middle"}}>
-                    {id}:{this.props.position}
+                    {id}
                 </td>
                 <td style={{ textAlign: "center" , verticalAlign: "middle"}}>
                     <strong><p style={{textTransform:"capitalize"}}>{this.props.pokemon.name}</p></strong>
                 </td>
                 <td style={{ textAlign: "center", verticalAlign: "middle" }} >
-                    <img src={imgURL} alt={id} />
+                    <img src={id<=10090?imgURL:missingno} alt={id} />
                 </td>
                 <td style={{ textAlign: "center", verticalAlign: "middle"}}>
-                    <button className="btn btn-primary" >Informações</button>
+                    <Link to={"/info/"+id} className="btn btn-primary">Informações</Link>
                     <button className="btn btn-danger" style={{marginLeft:20}}>Capturar</button>
                 </td>
             </tr>
