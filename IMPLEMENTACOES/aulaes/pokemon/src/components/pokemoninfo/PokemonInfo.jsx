@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import PokemonMoveDetail from './PokemonMoveDetail'
+import PokemonMoveDetail from './PokemonInfoTableRow'
 import { Link } from 'react-router-dom'
 
 
@@ -41,7 +41,7 @@ export default class PokemonInfo extends Component {
     getMoves(){
         return this.state.moves.map(
             (item,i)=>{
-                return <PokemonMoveDetail move={item.move} />
+                return <PokemonMoveDetail move={item.move} key={i}/>
                 //return ` ${item.move.name} `
             }
         )

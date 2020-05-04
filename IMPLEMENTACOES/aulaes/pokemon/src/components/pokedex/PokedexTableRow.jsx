@@ -9,6 +9,17 @@ export default class TableRow extends Component {
         var tokens = url.split('/')
         return tokens[tokens.length-2]
     }
+
+    capturar(id,nome){
+        let pokeball = JSON.parse(sessionStorage.getItem('pokeball'))        
+        if(!pokeball){
+            pokeball = []
+        }
+        if(pokeball.includes({id:id,nome:nome})) return
+        pokeball.push({id:id,nome:nome})
+        sessionStorage.setItem('pokeball',JSON.stringify(pokeball))
+        
+    }
     
     render() {
         const id = this.getPokemonIdByURL(this.props.pokemon.url)
@@ -26,7 +37,7 @@ export default class TableRow extends Component {
                 </td>
                 <td style={{ textAlign: "center", verticalAlign: "middle"}}>
                     <Link to={`/pokemoninfo/${id}`} className="btn btn-primary">Informações</Link>
-                    <button className="btn btn-danger" style={{marginLeft:20}}>Capturar</button>
+                    <button className="btn btn-danger" style={{marginLeft:20}} onClick={()=>this.capturar(id,this.props.pokemon.name)}>Capturar</button>
                 </td>
             </tr>
         )
