@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import PokeballTableRow from './PokeballTableRow'
+import { Link } from 'react-router-dom'
+
 
 export default class Pokeball extends Component {
 
@@ -40,17 +42,24 @@ export default class Pokeball extends Component {
             }}>
 
                 <h3>Poké Ball</h3>
-                <table className="table table-striped table-sm table-bordered" style={{ marginTop: 20, width: '80%' }}>
+                <table className="table table-striped table-sm table-bordered" style={{ marginTop: 20, width: '50%' }}>
                     <thead className="thead-dark">
                         <tr>
                             <th style={{ textAlign: "center", width: '20%' }}>ID</th>
-                            <th style={{ textAlign: "center", width: '20%' }}>Nome</th>
+                            <th style={{ textAlign: "center", width: '40%' }}>Nome</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.montarTabela()}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan='3' style={{ textAlign: "center"}}>
+                                <Link to={'/pokedex'} className='btn btn-secondary' >Pokédex</Link>  
+                            </td>
+                        </tr>
+                    </tfoot>
 
                 </table>
             </div>

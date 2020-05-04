@@ -14,7 +14,7 @@ export default class PokeballTableRow extends Component {
                 <td style={{ textAlign: "center" , verticalAlign: "middle"}}>
                     <strong><p style={{textTransform:"capitalize"}}>{this.props.nome}</p></strong>
                 </td>
-                <td>
+                <td style={{ textAlign: "center" }}>
                     <img src={this.props.id<=10090?imgURL:missingno} alt={this.props.id} />
                 </td>
             </tr>

@@ -15,10 +15,23 @@ export default class TableRow extends Component {
         if(!pokeball){
             pokeball = []
         }
-        if(pokeball.includes({id:id,nome:nome})) return
+
+        if(pokeball.length===6){
+            alert('Capacidade máxima da Pokebola atingida.')
+            return
+        }
+
+        //if(pokeball.includes({id:id,nome:nome})) return
+        for (let index = 0; index < pokeball.length; index++) {
+            const element = pokeball[index];
+            if(id===element.id) {
+                alert('Pokemon já capturado! Escolha outro.')
+                return
+            }
+        }
         pokeball.push({id:id,nome:nome})
         sessionStorage.setItem('pokeball',JSON.stringify(pokeball))
-        
+        alert('Pokemon capturado com sucesso!')
     }
     
     render() {
