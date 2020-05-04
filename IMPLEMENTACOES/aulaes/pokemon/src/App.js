@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom'
 
-import List from './components/Pokedex'
+import Pokeball from './components/pokeball/Pokeball'
+import Pokedex from './components/pokedex/Pokedex'
 import Home from './components/Home'
-import Info from './components/PokemonInfo'
+import PokemonInfo from './components/pokemoninfo/PokemonInfo'
 
 export default class App extends Component{
 
@@ -25,15 +26,19 @@ export default class App extends Component{
                   <Link to={'/'} className='nav-link'>Home</Link>  
                 </li>
                 <li>
-                  <Link to={'/list'} className='nav-link'>Pokédex</Link>  
+                  <Link to={'/pokedex'} className='nav-link'>Pokédex</Link>  
+                </li>
+                <li>
+                  <Link to={'/pokeball'} className='nav-link'>Poké Ball</Link>  
                 </li>
               </ul>
             </div>
           </nav>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route path='/list' component={List}/>
-            <Route path='/info/:id' component={Info}/>
+            <Route path='/pokedex' component={Pokedex}/>
+            <Route path='/pokemoninfo/:id' component={PokemonInfo}/>
+            <Route path='/pokeball' component={Pokeball}/>
           </Switch>
         </div>
       </Router>
