@@ -13,13 +13,17 @@ export default class Pokeball extends Component {
     componentDidMount() {
         const pokeball = JSON.parse(sessionStorage.getItem('pokeball'))
         if (pokeball) {
-           // console.log(pokeball)
            this.setState({pokeball:pokeball})
         }
     }
 
     montarTabela() {
-        if (!this.state.pokeball) return
+        if (!this.state.pokeball || this.state.pokeball.length===0) {
+            return (
+            <tr>
+                <td colSpan='3' style={{textAlign:"center"}}> Pokebola vazia. </td>
+            </tr>)
+        }
         return this.state.pokeball.map(
             (pokemon, i) => {
                 return <PokeballTableRow
