@@ -99,7 +99,7 @@ export default class PokemonInfo extends Component {
                     <tfoot>
                         <tr>
                             <td colSpan='2' style={{ textAlign: "center" , verticalAlign: "middle"}}>
-                                <Link to={'/list'} className="btn btn-primary">Voltar</Link>
+                                <Link to={'/pokedex'} className="btn btn-primary">Voltar</Link>
                             </td>
                         </tr>
                     </tfoot>

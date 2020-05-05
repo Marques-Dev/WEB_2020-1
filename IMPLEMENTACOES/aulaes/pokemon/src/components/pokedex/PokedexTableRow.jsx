@@ -21,7 +21,6 @@ export default class TableRow extends Component {
             return
         }
 
-        //if(pokeball.includes({id:id,nome:nome})) return
         for (let index = 0; index < pokeball.length; index++) {
             const element = pokeball[index];
             if(id===element.id) {
@@ -29,7 +28,7 @@ export default class TableRow extends Component {
                 return
             }
         }
-        pokeball.push({id:id,nome:nome})
+        pokeball.push({id:id,nome:nome,life:100})
         sessionStorage.setItem('pokeball',JSON.stringify(pokeball))
         alert('Pokemon capturado com sucesso!')
     }

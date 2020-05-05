@@ -2,16 +2,17 @@ import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom'
 
-import Pokeball from './components/pokeball/Pokeball'
-import Pokedex from './components/pokedex/Pokedex'
 import Home from './components/Home'
+import Pokedex from './components/pokedex/Pokedex'
 import PokemonInfo from './components/pokemoninfo/PokemonInfo'
+import Pokeball from './components/pokeball/Pokeball'
+import PokeArena from './components/pokearena/PokeArena'
 
 export default class App extends Component{
 
   constructor(props){
     super(props)
-    sessionStorage.clear()
+    //sessionStorage.clear()
     sessionStorage.setItem('url','https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
   }
 
@@ -27,10 +28,13 @@ export default class App extends Component{
                   <Link to={'/'} className='nav-link'>Home</Link>  
                 </li>
                 <li>
-                  <Link to={'/pokedex'} className='nav-link'>Pokédex</Link>  
+                  <Link to={'/pokedex'} className='nav-link'>PokéDex</Link>  
                 </li>
                 <li>
-                  <Link to={'/pokeball'} className='nav-link'>Poké Ball</Link>  
+                  <Link to={'/pokeball'} className='nav-link'>PokéBall</Link>  
+                </li>
+                <li>
+                  <Link to={'/pokearena'} className='nav-link'>PokeArena</Link>  
                 </li>
               </ul>
             </div>
@@ -40,6 +44,7 @@ export default class App extends Component{
             <Route path='/pokedex' component={Pokedex}/>
             <Route path='/pokemoninfo/:id' component={PokemonInfo}/>
             <Route path='/pokeball' component={Pokeball}/>
+            <Route path='/pokearena' component={PokeArena}/>
           </Switch>
         </div>
       </Router>

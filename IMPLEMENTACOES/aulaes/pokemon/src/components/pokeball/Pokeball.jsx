@@ -7,6 +7,7 @@ export default class Pokeball extends Component {
 
     constructor(props){
         super(props)
+
         this.state = {pokeball:[]}
     }
 
