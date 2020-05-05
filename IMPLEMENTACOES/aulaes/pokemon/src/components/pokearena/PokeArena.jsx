@@ -14,6 +14,7 @@ export default class PokeArena extends Component {
         { id: 110, nome: 'weezing', life: 100 },
         { id: 112, nome: 'rhydon', life: 100 }]
         this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 3, desafiante: 5 }
+        this.mudarEscolhido = this.mudarEscolhido.bind(this)
 
     }
 
@@ -27,7 +28,9 @@ export default class PokeArena extends Component {
     renderizarPokeball() {
         return this.state.pokeball.map(
             (pokemon, i) => {
-                return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} life={pokemon.life} />
+                return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} 
+                                        life={pokemon.life} mudarEscolhido={this.mudarEscolhido}
+                                        index={i}/>
             }
         )
     }
@@ -46,28 +49,30 @@ export default class PokeArena extends Component {
 
         return (
             <table style={{ width: '100%' }} background={background}>
-                <tr>
-                    <td style={{ textAlign: "right" }}>
-                        <span style={{ textTransform: "capitalize" }}>
-                            <b>{desafiante.nome} ({desafiante.life}/100)</b>
-                        </span>
-                        <img src={imgURLDesafiante} alt={desafiante.nome} />
+                <tbody>
+                    <tr>
+                        <td style={{ textAlign: "right" }}>
+                            <span style={{ textTransform: "capitalize" }}>
+                                <b>{desafiante.nome} ({desafiante.life}/100)</b>
+                            </span>
+                            <img src={imgURLDesafiante} alt={desafiante.nome} />
 
-                    </td>
-                </tr>
-                <tr>
-                    <td style={{ padding: 4 }}>
-                        <img src={imgURLEscolhido} alt={escolhido.nome} />
-                        <span style={{ textTransform: "capitalize" }}>
-                            <b>{escolhido.nome} ({escolhido.life}/100)</b>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style={{ textAlign: "center", backgroundColor:"white"}}>
-                        <button className="btn btn-secondary">Atacar</button>
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ padding: 4 }}>
+                            <img src={imgURLEscolhido} alt={escolhido.nome} />
+                            <span style={{ textTransform: "capitalize" }}>
+                                <b>{escolhido.nome} ({escolhido.life}/100)</b>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ textAlign: "center", backgroundColor:"white"}}>
+                            <button className="btn btn-secondary">Atacar</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         )
 
@@ -80,6 +85,11 @@ export default class PokeArena extends Component {
                 return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} life={pokemon.life} />
             }
         )
+    }
+
+    mudarEscolhido(index){
+        //console.log(index)
+        this.setState({escolhido:index})
     }
 
     render() {
@@ -102,17 +112,25 @@ export default class PokeArena extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <td style={{ width: '10%' }}>
-                            <table>
-                                {this.renderizarPokeball()}
-                            </table>
-                        </td>
-                        <td>
-                            {this.renderizarArena()}
-                        </td>
-                        <td style={{ width: '10%' }}>
-                            {this.renderizarDesafiantes()}
-                        </td>
+                        <tr>
+                            <td style={{ width: '10%' }}>
+                                <table>
+                                    <tbody>
+                                    {this.renderizarPokeball()}
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td>
+                                {this.renderizarArena()}
+                            </td>
+                            <td style={{ width: '10%' }}>
+                                <table>
+                                    <tbody>
+                                    {this.renderizarDesafiantes()}
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

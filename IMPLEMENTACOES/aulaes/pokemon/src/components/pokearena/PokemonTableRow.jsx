@@ -10,7 +10,7 @@ export default class PokemonTableRow extends Component {
             <tr>
                 <td style={{ textAlign: "center", padding:0}}>
                     
-                    <button>
+                    <button onClick={()=>this.props.mudarEscolhido(this.props.index)}>
                         <img src={this.props.id<=10090?imgURL:missingno} alt={this.props.id} /><br/>   
                     </button> 
                     
