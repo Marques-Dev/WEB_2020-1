@@ -11,11 +11,11 @@ export default class PokeArena extends Component {
         super(props)
         let equipeRocket = [{ id: 24, nome: 'arbok', life: 100 },
         { id: 52, nome: 'meowth', life: 100 },
-        { id: 71, nome: 'victreebel', life: 100 },
-        { id: 108, nome: 'lickitung', life: 100 },
+        //{ id: 71, nome: 'victreebel', life: 100 },
+        //{ id: 108, nome: 'lickitung', life: 100 },
         { id: 110, nome: 'weezing', life: 100 },
         { id: 112, nome: 'rhydon', life: 100 }]
-        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 3, desafiante: 5, mensagem: '' }
+        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 0, desafiante: 0, mensagem: '', atacarBtn:true }
         this.mudarEscolhido = this.mudarEscolhido.bind(this)
 
     }
@@ -75,7 +75,7 @@ export default class PokeArena extends Component {
                     </tr>
                     <tr>
                         <td style={{ textAlign: "center", backgroundColor:"white"}}>
-                            <button className="btn btn-secondary" onClick={()=>this.atacar()}>Atacar</button>
+                            <button className="btn btn-secondary" onClick={()=>this.atacar()} disabled={!this.state.atacarBtn}>Atacar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -106,22 +106,32 @@ export default class PokeArena extends Component {
     }
 
     async atacar(){
+        this.setState({atacarBtn:false})
         //await delay(5000);
         let escolhido = this.state.pokeball[this.state.escolhido]
         let desafiante = this.state.desafiantes[this.state.desafiante]
 
         this.setState({mensagem:`${escolhido.nome} atacou! 20 de dano!`})
+        await delay(1000);
         desafiante.life = (desafiante.life - 20)<0 ? 0 : desafiante.life - 20
         if(desafiante.life===0){
             this.setState({mensagem:`${desafiante.nome} desmaiou!`})
+            await delay(1000);
             const index = this.proximoDesafiante()
             if(index>=0){
                 this.setState({desafiante:index})
+                desafiante = this.state.desafiantes[this.state.desafiante]
+                this.setState({mensagem:`${desafiante.nome} tomou seu lugar!`})
+                await delay(1000);  
+            }else{
+                this.setState({mensagem:`Parabéns, você venceu!`})
+                await delay(1000); 
+                this.reiniciarDesafiantes()
+                this.setState({mensagem:`A batalha recomeça!`})
+                await delay(1000); 
             }
         }
-
-        //await delay(1000);
-        
+        this.setState({atacarBtn:true})
     }
 
     proximoDesafiante(){
@@ -134,6 +144,16 @@ export default class PokeArena extends Component {
         return -1
     }
 
+    reiniciarDesafiantes(){
+        let desafiantes = this.state.desafiantes
+
+        for (let index = 0; index < desafiantes.length; index++) {
+            const desafiante = desafiantes[index];
+            desafiante.life = 100;
+        }
+        this.setState({desafiante:0})
+    }
+
     render() {
         return (
             <div style={{
@@ -143,8 +163,6 @@ export default class PokeArena extends Component {
                 justifyContent: 'center',
                 flexDirection: 'column'
             }}>
-
-                <h3>Pokemon Arena</h3>
                 <table className="table table-bordered" style={{ marginTop: 20, width: '71%' }}>
                     <thead className="thead-dark">
                         <tr>

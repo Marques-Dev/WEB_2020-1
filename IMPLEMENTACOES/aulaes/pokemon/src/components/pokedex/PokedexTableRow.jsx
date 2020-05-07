@@ -16,7 +16,7 @@ export default class TableRow extends Component {
             pokeball = []
         }
 
-        if(pokeball.length===6){
+        if(pokeball.length===4){
             alert('Capacidade máxima da Pokebola atingida.')
             return
         }
