@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import background from '../../img/battlegrass.png'
-
 import PokemonTableRow from './PokemonTableRow'
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 
 export default class PokeArena extends Component {
 
@@ -13,7 +15,7 @@ export default class PokeArena extends Component {
         { id: 108, nome: 'lickitung', life: 100 },
         { id: 110, nome: 'weezing', life: 100 },
         { id: 112, nome: 'rhydon', life: 100 }]
-        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 3, desafiante: 5 }
+        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 3, desafiante: 5, mensagem: '' }
         this.mudarEscolhido = this.mudarEscolhido.bind(this)
 
     }
@@ -23,6 +25,8 @@ export default class PokeArena extends Component {
         if (pokeball) {
             this.setState({ pokeball: pokeball })
         }
+
+        this.setState({mensagem:'A batalha vai começar!'})
     }
 
     renderizarPokeball() {
@@ -30,7 +34,8 @@ export default class PokeArena extends Component {
             (pokemon, i) => {
                 return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} 
                                         life={pokemon.life} mudarEscolhido={this.mudarEscolhido}
-                                        index={i}/>
+                                        index={i}
+                                        jogador={true}/>
             }
         )
     }
@@ -48,7 +53,8 @@ export default class PokeArena extends Component {
             'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + escolhido.id + '.png'
 
         return (
-            <table style={{ width: '100%' }} background={background}>
+            <>
+            <table style={{ width: '470px',margin:'auto'}} background={background}>
                 <tbody>
                     <tr>
                         <td style={{ textAlign: "right" }}>
@@ -69,11 +75,15 @@ export default class PokeArena extends Component {
                     </tr>
                     <tr>
                         <td style={{ textAlign: "center", backgroundColor:"white"}}>
-                            <button className="btn btn-secondary">Atacar</button>
+                            <button className="btn btn-secondary" onClick={()=>this.atacar()}>Atacar</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div className="alert alert-warning" role="alert" style={{marginTop:10,textTransform:'uppercase'}}>
+                {this.state.mensagem}
+            </div>
+            </>
         )
 
 
@@ -82,7 +92,10 @@ export default class PokeArena extends Component {
     renderizarDesafiantes() {
         return this.state.desafiantes.map(
             (pokemon, i) => {
-                return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} life={pokemon.life} />
+                return <PokemonTableRow id={pokemon.id} 
+                                        key={i} nome={pokemon.nome} 
+                                        life={pokemon.life}
+                                        jogador={false} />
             }
         )
     }
@@ -90,6 +103,35 @@ export default class PokeArena extends Component {
     mudarEscolhido(index){
         //console.log(index)
         this.setState({escolhido:index})
+    }
+
+    async atacar(){
+        //await delay(5000);
+        let escolhido = this.state.pokeball[this.state.escolhido]
+        let desafiante = this.state.desafiantes[this.state.desafiante]
+
+        this.setState({mensagem:`${escolhido.nome} atacou! 20 de dano!`})
+        desafiante.life = (desafiante.life - 20)<0 ? 0 : desafiante.life - 20
+        if(desafiante.life===0){
+            this.setState({mensagem:`${desafiante.nome} desmaiou!`})
+            const index = this.proximoDesafiante()
+            if(index>=0){
+                this.setState({desafiante:index})
+            }
+        }
+
+        //await delay(1000);
+        
+    }
+
+    proximoDesafiante(){
+        let desafiantes = this.state.desafiantes
+
+        for (let index = 0; index < desafiantes.length; index++) {
+            const desafiante = desafiantes[index];
+            if(desafiante.life>0) return index
+        }
+        return -1
     }
 
     render() {
