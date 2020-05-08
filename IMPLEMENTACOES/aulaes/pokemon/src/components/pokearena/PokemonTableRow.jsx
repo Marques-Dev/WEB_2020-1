@@ -10,7 +10,7 @@ export default class PokemonTableRow extends Component {
             return (
                 <button className='btn btn-outline-light' 
                         onClick={() => this.props.mudarEscolhido(this.props.index)}
-                        style={{padding:0,margin:0,borderRadius:0}}>
+                        style={{padding:0,margin:0,borderRadius:0,border:'none'}}>
                     <img src={this.props.id <= 10090 ? imgURL : missingno} alt={this.props.id} />
                 </button>
             )
@@ -23,11 +23,11 @@ export default class PokemonTableRow extends Component {
     render() {
         
         return (
-            <tr>
-                <td style={{ textAlign: "center", padding: 0 }}>
+            <div className='row'>
+                <div className='col-12 text-center'>
                     {this.renderizarCelula()}
-                </td>
-            </tr>
+                </div>
+            </div>
         )
     }
 }

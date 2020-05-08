@@ -15,7 +15,7 @@ export default class PokeArena extends Component {
         //{ id: 108, nome: 'lickitung', life: 100 },
         { id: 110, nome: 'weezing', life: 100 },
         { id: 112, nome: 'rhydon', life: 100 }]
-        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 0, desafiante: 0, mensagem: '', atacarBtn:true }
+        this.state = { pokeball: [], desafiantes: equipeRocket, escolhido: 0, desafiante: 0, mensagem: '', atacarBtn: true }
         this.mudarEscolhido = this.mudarEscolhido.bind(this)
 
     }
@@ -26,16 +26,16 @@ export default class PokeArena extends Component {
             this.setState({ pokeball: pokeball })
         }
 
-        this.setState({mensagem:'A batalha vai começar!'})
+        this.setState({ mensagem: 'A batalha vai começar!' })
     }
 
     renderizarPokeball() {
         return this.state.pokeball.map(
             (pokemon, i) => {
-                return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome} 
-                                        life={pokemon.life} mudarEscolhido={this.mudarEscolhido}
-                                        index={i}
-                                        jogador={true}/>
+                return <PokemonTableRow id={pokemon.id} key={i} nome={pokemon.nome}
+                    life={pokemon.life} mudarEscolhido={this.mudarEscolhido}
+                    index={i}
+                    jogador={true} />
             }
         )
     }
@@ -54,104 +54,110 @@ export default class PokeArena extends Component {
 
         return (
             <>
-            <table style={{ width: '470px',margin:'auto'}} background={background}>
-                <tbody>
-                    <tr>
-                        <td style={{ textAlign: "right" }}>
-                            <span style={{ textTransform: "capitalize" }}>
-                                <b>{desafiante.nome} ({desafiante.life}/100)</b>
-                            </span>
-                            <img src={imgURLDesafiante} alt={desafiante.nome} />
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style={{ padding: 4 }}>
-                            <img src={imgURLEscolhido} alt={escolhido.nome} />
-                            <span style={{ textTransform: "capitalize" }}>
-                                <b>{escolhido.nome} ({escolhido.life}/100)</b>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style={{ textAlign: "center", backgroundColor:"white"}}>
-                            <button className="btn btn-secondary" onClick={()=>this.atacar()} disabled={!this.state.atacarBtn}>Atacar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div className="alert alert-warning" role="alert" style={{marginTop:10,textTransform:'uppercase'}}>
-                {this.state.mensagem}
-            </div>
+                <div className="row" style={{ background: `url(${background}) no-repeat center center`}}>
+                    <div className="col-12">
+                        <div className="row">
+                            <div className="col-12 text-right">
+                                <span style={{ textTransform: "capitalize" }}>
+                                    <b>{desafiante.nome} ({desafiante.life}/100)</b>
+                                </span>
+                                <img src={imgURLDesafiante} alt={desafiante.nome} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 text-left">
+                                <img src={imgURLEscolhido} alt={escolhido.nome} />
+                                <span style={{ textTransform: "capitalize" }}>
+                                    <b>{escolhido.nome} ({escolhido.life}/100)</b>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 text-center" style={{padding:'0.5em'}}>
+                        <button className="btn btn-secondary" 
+                                onClick={() => this.atacar()} 
+                                disabled={!this.state.atacarBtn}>
+                                    Atacar
+                        </button>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="alert alert-warning" role="alert" style={{textTransform: 'uppercase' }}>
+                            {this.state.mensagem}
+                        </div>
+                    </div>
+                </div>
             </>
         )
-
 
     }
 
     renderizarDesafiantes() {
         return this.state.desafiantes.map(
             (pokemon, i) => {
-                return <PokemonTableRow id={pokemon.id} 
-                                        key={i} nome={pokemon.nome} 
-                                        life={pokemon.life}
-                                        jogador={false} />
+                return <PokemonTableRow id={pokemon.id}
+                    key={i} nome={pokemon.nome}
+                    life={pokemon.life}
+                    jogador={false} />
             }
         )
     }
 
-    mudarEscolhido(index){
+    mudarEscolhido(index) {
         //console.log(index)
-        this.setState({escolhido:index})
+        this.setState({ escolhido: index })
     }
 
-    async atacar(){
-        this.setState({atacarBtn:false})
+    async atacar() {
+        this.setState({ atacarBtn: false })
         //await delay(5000);
         let escolhido = this.state.pokeball[this.state.escolhido]
         let desafiante = this.state.desafiantes[this.state.desafiante]
 
-        this.setState({mensagem:`${escolhido.nome} atacou! 20 de dano!`})
+        this.setState({ mensagem: `${escolhido.nome} atacou! 20 de dano!` })
         await delay(1000);
-        desafiante.life = (desafiante.life - 20)<0 ? 0 : desafiante.life - 20
-        if(desafiante.life===0){
-            this.setState({mensagem:`${desafiante.nome} desmaiou!`})
+        desafiante.life = (desafiante.life - 20) < 0 ? 0 : desafiante.life - 20
+        if (desafiante.life === 0) {
+            this.setState({ mensagem: `${desafiante.nome} desmaiou!` })
             await delay(1000);
             const index = this.proximoDesafiante()
-            if(index>=0){
-                this.setState({desafiante:index})
+            if (index >= 0) {
+                this.setState({ desafiante: index })
                 desafiante = this.state.desafiantes[this.state.desafiante]
-                this.setState({mensagem:`${desafiante.nome} tomou seu lugar!`})
-                await delay(1000);  
-            }else{
-                this.setState({mensagem:`Parabéns, você venceu!`})
-                await delay(1000); 
+                this.setState({ mensagem: `${desafiante.nome} tomou seu lugar!` })
+                await delay(1000);
+            } else {
+                this.setState({ mensagem: `Parabéns, você venceu!` })
+                await delay(1000);
                 this.reiniciarDesafiantes()
-                this.setState({mensagem:`A batalha recomeça!`})
-                await delay(1000); 
+                this.setState({ mensagem: `A batalha recomeça!` })
+                await delay(1000);
             }
         }
-        this.setState({atacarBtn:true})
+        this.setState({ atacarBtn: true })
     }
 
-    proximoDesafiante(){
+    proximoDesafiante() {
         let desafiantes = this.state.desafiantes
 
         for (let index = 0; index < desafiantes.length; index++) {
             const desafiante = desafiantes[index];
-            if(desafiante.life>0) return index
+            if (desafiante.life > 0) return index
         }
         return -1
     }
 
-    reiniciarDesafiantes(){
+    reiniciarDesafiantes() {
         let desafiantes = this.state.desafiantes
 
         for (let index = 0; index < desafiantes.length; index++) {
             const desafiante = desafiantes[index];
             desafiante.life = 100;
         }
-        this.setState({desafiante:0})
+        this.setState({ desafiante: 0 })
     }
 
     render() {
@@ -163,37 +169,22 @@ export default class PokeArena extends Component {
                 justifyContent: 'center',
                 flexDirection: 'column'
             }}>
-                <table className="table table-bordered" style={{ marginTop: 20, width: '71%' }}>
-                    <thead className="thead-dark">
-                        <tr>
-                            <th style={{ textAlign: "center" }}>Pokeball</th>
-                            <th style={{ textAlign: "center" }}>Arena</th>
-                            <th style={{ textAlign: "center" }}>Desafiantes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style={{ width: '10%' }}>
-                                <table>
-                                    <tbody>
-                                    {this.renderizarPokeball()}
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>
-                                {this.renderizarArena()}
-                            </td>
-                            <td style={{ width: '10%' }}>
-                                <table>
-                                    <tbody>
-                                    {this.renderizarDesafiantes()}
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h3>Batalha Pokémon</h3>
+                <div className='container' style={{ width: '70%', marginTop: '1em', border: '1px solid #cecece' }}>
+                    <div className="row">
+                        <div className='col-2' style={{ padding: '0.5em' }}>
+                            {this.renderizarPokeball()}
+                        </div>
+                        <div className='col-8' style={{ borderLeft: '1px solid #cecece', borderRight: '1px solid #cecece', paddingTop: '2em' }}>
+                            {this.renderizarArena()}
+                        </div>
+                        <div className='col-2' style={{ padding: '0.5em' }}>
+                            {this.renderizarDesafiantes()}
+                        </div>
+                    </div>
+                </div>
             </div>
         )
+
     }
 }
