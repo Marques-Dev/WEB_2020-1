@@ -15,8 +15,14 @@ export default class PokemonTableRow extends Component {
                 </button>
             )
         }
+        let opacity = this.props.life/100
         return(
-            <img src={this.props.id <= 10090 ? imgURL : missingno} alt={this.props.id} />
+            
+            <img 
+                src={this.props.id <= 10090 ? imgURL : missingno} 
+                alt={this.props.id} 
+                style={{opacity:opacity}}
+                />
         )
     }
 
