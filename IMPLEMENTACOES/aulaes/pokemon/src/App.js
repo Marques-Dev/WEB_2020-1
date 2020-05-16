@@ -13,7 +13,7 @@ export default class App extends Component{
   constructor(props){
     super(props)
     //sessionStorage.clear()
-    sessionStorage.setItem('url','https://pokeapi.co/api/v2/pokemon?offset=0&limit=20')
+    sessionStorage.setItem('url','https://pokeapi.co/api/v2/pokemon')
   }
 
   render(){

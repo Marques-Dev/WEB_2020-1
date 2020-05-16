@@ -286,6 +286,43 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Conectando o React com o Express + Mongoose.
 		</td>
 	</tr>
+	<tr>
+		<td colspan="3" align="center"><b>Minicurso REACT - Pokédex</b></td>
+	</tr>
+	<tr>
+		<td>
+			AULA 11 - PARTE 01
+		</td>
+		<td>
+			https://youtu.be/B-P97BUKU6o
+		</td>
+		<td>
+			Listando os Pokémons
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 11 - PARTE 02
+		</td>
+		<td>
+			https://youtu.be/IpP6zCgm06E
+		</td>
+		<td>
+			Capturando os Pokémons, Arena
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 11 - FINAL
+		</td>
+		<td>
+			https://youtu.be/pOkA7L5W7A8
+		</td>
+		<td>
+			Finalizando
+		</td>
+	</tr>
+
 	
 
 </table>

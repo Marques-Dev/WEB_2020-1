@@ -85,7 +85,9 @@ export default class List extends Component {
             return (
                 <tbody>
                     <tr>
-                        <td style={{ textAlign: "center", verticalAlign: "middle", paddingTop: '20px' }} colSpan='4'>
+                        <td style={{ textAlign: "center", 
+                                    verticalAlign: "middle", 
+                                    paddingTop: '20px' }} colSpan='4'>
                             <Spinner animation="border" /><h1> Loading...</h1>
                         </td>
                     </tr>
@@ -130,7 +132,8 @@ export default class List extends Component {
             }}>
 
                 <h3>Pokédex</h3> ({this.state.count} Pokemons)
-                <table className="table table-striped table-sm table-bordered" style={{ marginTop: 20, width: '80%' }}>
+                <table className="table table-striped table-sm table-bordered" 
+                       style={{ marginTop: 20, width: '80%' }}>
                     <thead className="thead-dark">
                         <tr>
                             <th style={{ textAlign: "center", width: '20%' }}>ID</th>

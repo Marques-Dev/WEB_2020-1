@@ -81,6 +81,7 @@ export default class PokemonInfo extends Component {
                                 </ul>
                             </td>
                         </tr>
+
                         <tr>
                             <td colSpan='2' style={{ textAlign: "center" , verticalAlign: "middle"}}>
                                 <strong>Movimentos</strong>
@@ -95,6 +96,7 @@ export default class PokemonInfo extends Component {
                                 </table>
                             </td>
                         </tr>
+                        
                     </tbody>
                     <tfoot>
                         <tr>
