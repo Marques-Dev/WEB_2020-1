@@ -244,7 +244,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 08 - FINAL
 		</td>
 		<td>
-			https://youtu.be/EKtEhwea0r0
+			https://youtu.be/9mLYvrjL7c8
 		</td>
 		<td>
 			Junções
