@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
 import firebase from 'firebase'
+import key from './keys/firebase'
 
 import Create from './components/Create'
 import Edit from './components/Edit'
@@ -12,15 +13,7 @@ export default class App extends Component {
 
   componentDidMount() {
     if (!firebase.apps.length) {
-      firebase.initializeApp({
-        apiKey: "AIzaSyAJ0HXDKsTw6KKM5oRXttOxqpjOpHnUGuI",
-        authDomain: "web-2020-sies.firebaseapp.com",
-        databaseURL: "https://web-2020-sies.firebaseio.com",
-        projectId: "web-2020-sies",
-        storageBucket: "web-2020-sies.appspot.com",
-        messagingSenderId: "510656379433",
-        appId: "1:510656379433:web:f0b1532407da2a69d97a38"
-      })
+      firebase.initializeApp(key)
     }
   }
 
