@@ -1,66 +1,72 @@
 import React, { Component } from 'react'
 
 import TableRow from './TableRow'
+import FirebaseContext from '../utils/FirebaseContext'
 
-import * as firebase from 'firebase'
-import 'firebase/firestore'
+const ListPage = () => (
+    <FirebaseContext.Consumer>
+        {firebase => <List firebase={firebase} />}
+    </FirebaseContext.Consumer>
+)
 
-export default class List extends Component {
+class List extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        
+
         //firebase
         this.unscribe = null
-        this.ref = firebase.firestore().collection('estudantes')
-        
-        this.state = {estudantes:[]}
+        this.ref = this.props.firebase.getFirestore().collection('estudantes')
+
+        this.state = { estudantes: [] }
         this.apagarElementoPorId = this.apagarElementoPorId.bind(this)
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));
     }
 
-    alimentarEstudantes(query){
+    alimentarEstudantes(query) {
         let estudantes = []
-        query.forEach((doc)=>{
-            const {nome,curso,IRA} = doc.data()
+        query.forEach((doc) => {
+            const { nome, curso, IRA } = doc.data()
             estudantes.push({
-                _id:doc.id,
+                _id: doc.id,
                 nome,
                 curso,
                 IRA
             })//push
         })//forEach
-        this.setState({estudantes:estudantes})
+        this.setState({ estudantes: estudantes })
     }
 
-    montarTabela(){
-        if(!this.state.estudantes) return
+    apagarElementoPorId(id) {
+        let tempEstudantes = this.state.estudantes
+        for (let i = 0; i < tempEstudantes.length; i++) {
+            if (tempEstudantes[i]._id === id) {
+                tempEstudantes.splice(i, 1)
+            }
+        }
+        this.setState({ estudantes: tempEstudantes })
+    }
+
+    montarTabela() {
+        if (!this.state.estudantes) return
         return this.state.estudantes.map(
-            (est,i)=>{
-                return <TableRow estudante={est} 
-                                 key={i} 
-                                 apagarElementoPorId={this.apagarElementoPorId}/>
+            (est, i) => {
+                return <TableRow estudante={est}
+                    key={i}
+                    apagarElementoPorId={this.apagarElementoPorId}
+                    firebase={this.props.firebase} />
             }
         )
-    }
-
-    apagarElementoPorId(id){
-        let tempEstudantes = this.state.estudantes
-        for(let i=0;i<tempEstudantes.length;i++){
-            if(tempEstudantes[i]._id === id){
-                tempEstudantes.splice(i,1)
-            } 
-        }
-        this.setState({estudantes:tempEstudantes})
     }
 
     render() {
         return (
             <div style={{ marginTop: 10 }}>
                 <h3>Listar Estudantes</h3>
+
                 <table className="table table-striped" style={{ marginTop: 20 }}>
                     <thead>
                         <tr>
@@ -82,3 +88,5 @@ export default class List extends Component {
         )
     }
 }
+
+export default ListPage

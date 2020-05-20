@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
-import firebase from 'firebase'
-import key from './keys/firebase'
 
 import Create from './components/Create'
 import Edit from './components/Edit'
@@ -10,12 +8,6 @@ import List from './components/List'
 import Home from './components/Home'
 
 export default class App extends Component {
-
-  componentDidMount() {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(key)
-    }
-  }
 
   render() {
     return (
@@ -37,8 +29,6 @@ export default class App extends Component {
               </ul>
             </div>
           </nav>
-
-          <h2>Projeto CRUD</h2> <br />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/create' component={Create} />
