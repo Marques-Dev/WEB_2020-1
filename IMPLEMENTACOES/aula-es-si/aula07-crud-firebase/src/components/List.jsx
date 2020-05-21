@@ -16,6 +16,7 @@ class List extends Component {
 
         //firebase
         this.unscribe = null
+        this._isMounted = false
         this.ref = this.props.firebase.getFirestore().collection('estudantes')
 
         this.state = { estudantes: [] }
@@ -23,7 +24,12 @@ class List extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true
         this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false
     }
 
     alimentarEstudantes(query) {
@@ -37,7 +43,7 @@ class List extends Component {
                 IRA
             })//push
         })//forEach
-        this.setState({ estudantes: estudantes })
+        this._isMounted && this.setState({ estudantes: estudantes })
     }
 
     apagarElementoPorId(id) {
@@ -47,7 +53,7 @@ class List extends Component {
                 tempEstudantes.splice(i, 1)
             }
         }
-        this.setState({ estudantes: tempEstudantes })
+        this._isMounted && this.setState({ estudantes: tempEstudantes })
     }
 
     montarTabela() {
@@ -66,7 +72,6 @@ class List extends Component {
         return (
             <div style={{ marginTop: 10 }}>
                 <h3>Listar Estudantes</h3>
-
                 <table className="table table-striped" style={{ marginTop: 20 }}>
                     <thead>
                         <tr>
@@ -80,10 +85,7 @@ class List extends Component {
                     <tbody>
                         {this.montarTabela()}
                     </tbody>
-
                 </table>
-
-
             </div>
         )
     }
