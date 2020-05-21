@@ -19,21 +19,23 @@ class List extends Component {
         this._isMounted = false
         this.ref = this.props.firebase.getFirestore().collection('estudantes')
 
-        this.state = { estudantes: [] }
+        this.state = { estudantes: [], loading: false }
         this.apagarElementoPorId = this.apagarElementoPorId.bind(this)
     }
 
     componentDidMount() {
         this._isMounted = true
+        this.setState({ loading: true })
         this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this._isMounted = false
     }
 
     alimentarEstudantes(query) {
         let estudantes = []
+        
         query.forEach((doc) => {
             const { nome, curso, IRA } = doc.data()
             estudantes.push({
@@ -43,7 +45,7 @@ class List extends Component {
                 IRA
             })//push
         })//forEach
-        this._isMounted && this.setState({ estudantes: estudantes })
+        this._isMounted && this.setState({ estudantes: estudantes, loading: false })
     }
 
     apagarElementoPorId(id) {
@@ -58,6 +60,7 @@ class List extends Component {
 
     montarTabela() {
         if (!this.state.estudantes) return
+        if (this.state.loading) return this.loadingSpinner()
         return this.state.estudantes.map(
             (est, i) => {
                 return <TableRow estudante={est}
@@ -68,10 +71,28 @@ class List extends Component {
         )
     }
 
+    loadingSpinner() {
+        return (
+            <tr style={{backgroundColor:'#fff'}}>
+                <td colSpan='6'>
+                    <div className="text-center">
+                        
+                        <div className="spinner-border ml-auto"
+                             role="status"
+                             aria-hidden="true"
+                             style={{width: '3rem', height: '3rem'}}></div><br/>
+                        <strong>Loading...</strong>
+                    </div>
+                </td>
+            </tr>
+        )
+    }
+
     render() {
         return (
             <div style={{ marginTop: 10 }}>
                 <h3>Listar Estudantes</h3>
+
                 <table className="table table-striped" style={{ marginTop: 20 }}>
                     <thead>
                         <tr>
