@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import TableRow from './TableRow'
 import FirebaseContext from '../utils/FirebaseContext'
+import FirebaseService from '../services/FirebaseService'
 
 const ListPage = () => (
     <FirebaseContext.Consumer>
@@ -17,7 +18,6 @@ class List extends Component {
         //firebase
         this.unscribe = null
         this._isMounted = false
-        this.ref = this.props.firebase.getFirestore().collection('estudantes')
 
         this.state = { estudantes: [], loading: false }
         this.apagarElementoPorId = this.apagarElementoPorId.bind(this)
@@ -26,16 +26,23 @@ class List extends Component {
     componentDidMount() {
         this._isMounted = true
         this.setState({ loading: true })
-        this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));
+
+        //firestore
+        /*this.ref = this.props.firebase.getFirestore().collection('estudantes')
+        this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));*/
+        FirebaseService.list(this.props.firebase.getFirestore(),
+            (estudantes) => {
+                this._isMounted && this.setState({ estudantes: estudantes, loading: false })
+            })
     }
 
     componentWillUnmount() {
         this._isMounted = false
     }
 
-    alimentarEstudantes(query) {
+    /*alimentarEstudantes(query) {
         let estudantes = []
-        
+
         query.forEach((doc) => {
             const { nome, curso, IRA } = doc.data()
             estudantes.push({
@@ -46,7 +53,7 @@ class List extends Component {
             })//push
         })//forEach
         this._isMounted && this.setState({ estudantes: estudantes, loading: false })
-    }
+    }*/
 
     apagarElementoPorId(id) {
         let tempEstudantes = this.state.estudantes
@@ -73,14 +80,14 @@ class List extends Component {
 
     loadingSpinner() {
         return (
-            <tr style={{backgroundColor:'#fff'}}>
+            <tr style={{ backgroundColor: '#fff' }}>
                 <td colSpan='6'>
                     <div className="text-center">
-                        
+
                         <div className="spinner-border ml-auto"
-                             role="status"
-                             aria-hidden="true"
-                             style={{width: '3rem', height: '3rem'}}></div><br/>
+                            role="status"
+                            aria-hidden="true"
+                            style={{ width: '3rem', height: '3rem' }}></div><br />
                         <strong>Loading...</strong>
                     </div>
                 </td>

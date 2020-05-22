@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import FirebaseContext from '../utils/FirebaseContext'
+import FirebaseService from '../services/FirebaseService'
 
 const EditPage = (props) => (
     <FirebaseContext.Consumer>
@@ -23,7 +24,7 @@ class Edit extends Component {
 
     componentDidMount() {
 
-        this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).get()
+        /*this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).get()
             .then((doc) => {
                 //console.log(res.data)
                 this.setState({
@@ -32,7 +33,18 @@ class Edit extends Component {
                     IRA: doc.data().IRA
                 })
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error))*/
+        FirebaseService.retrieve(this.props.firebase.getFirestore(),
+            (estudante) => {
+                if (estudante)
+                    this.setState({
+                        nome: estudante.nome,
+                        curso: estudante.curso,
+                        IRA: estudante.IRA
+                    })
+            },
+            this.props.id
+        )
     }
 
     setNome(e) {
@@ -49,17 +61,29 @@ class Edit extends Component {
 
     onSubmit(e) {
         e.preventDefault()
-        this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).set({
+        FirebaseService.edit(
+            this.props.firebase.getFirestore(),
+            (mensagem) => {
+                console.log(mensagem)
+            },
+            this.props.id,
+            {
+                nome: this.state.nome,
+                curso: this.state.curso,
+                IRA: this.state.IRA
+            }
+        )
+        /*this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).set({
             nome: this.state.nome,
             curso: this.state.curso,
             IRA: this.state.IRA
         })
-        .then(() => {
-            console.log('Estudante editado.')
-        })
-        .catch(() => {
-            this.setState({ loading: false })
-        });
+            .then(() => {
+                console.log('Estudante editado.')
+            })
+            .catch(() => {
+                this.setState({ loading: false })
+            });*/
     }
 
     render() {

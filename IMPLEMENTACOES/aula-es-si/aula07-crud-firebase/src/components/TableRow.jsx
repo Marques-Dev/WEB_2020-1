@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import FirebaseService from '../services/FirebaseService'
 
 export default class TableRow extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.apagar = this.apagar.bind(this) 
+        this.apagar = this.apagar.bind(this)
     }
 
-    apagar(id,nome){
+    apagar(id, nome) {
         let res = window.confirm(`Deseja apagar ${nome}?`)
-        if(res){
-            this.props.firebase.getFirestore().collection('estudantes').doc(id).delete()
+        if (res) {
+            FirebaseService.delete(this.props.firebase.getFirestore(),
+                (mensagem) => {
+                    console.log(mensagem)
+                }, id)
+            /*this.props.firebase.getFirestore().collection('estudantes').doc(id).delete()
             .then(()=>console.log(`${nome} apagado.`))
-            .catch((error)=>console.log(error))
+            .catch((error)=>console.log(error))*/
         }
     }
 
@@ -34,11 +39,11 @@ export default class TableRow extends Component {
                     {this.props.estudante.IRA}
                 </td>
                 <td style={{ textAlign: "center" }}>
-                    <Link to={"/edit/"+this.props.estudante._id} className="btn btn-primary">Editar</Link>
+                    <Link to={"/edit/" + this.props.estudante._id} className="btn btn-primary">Editar</Link>
                 </td>
                 <td style={{ textAlign: "center" }}>
-                    <button onClick={()=>this.apagar(this.props.estudante._id, this.props.estudante.nome)} 
-                            className="btn btn-danger">
+                    <button onClick={() => this.apagar(this.props.estudante._id, this.props.estudante.nome)}
+                        className="btn btn-danger">
                         Apagar
                     </button>
                 </td>

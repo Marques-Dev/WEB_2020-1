@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import FirebaseContext from '../utils/FirebaseContext'
+import FirebaseService from '../services/FirebaseService'
 
 const CreatePage = () => (
     <FirebaseContext.Consumer>
@@ -25,7 +26,7 @@ class Create extends Component {
     setNome(e) {
         this.setState({ nome: e.target.value })
     }
-    
+
     setCurso(e) {
         this.setState({ curso: e.target.value })
     }
@@ -34,9 +35,19 @@ class Create extends Component {
         this.setState({ IRA: e.target.value })
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         e.preventDefault()
-        this.props.firebase.getFirestore().collection('estudantes').add({
+        const estudante = {
+            nome: this.state.nome,
+            curso: this.state.curso,
+            IRA: this.state.IRA
+        }
+        FirebaseService.create(this.props.firebase.getFirestore(),
+            (mensagem) => {
+                console.log(mensagem)
+            },
+            estudante)
+        /*this.props.firebase.getFirestore().collection('estudantes').add({
             nome:this.state.nome,
             curso:this.state.curso,
             IRA:this.state.IRA
@@ -50,7 +61,7 @@ class Create extends Component {
             (error)=>{
                 console.log(error)
             }
-        )
+        )*/
 
         this.setState({ nome: '', curso: '', IRA: '' })
     }
@@ -63,18 +74,18 @@ class Create extends Component {
 
                     <div className="form-group">
                         <label>Nome: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.nome} onChange={this.setNome}/>
+                        <input type="text" className="form-control"
+                            value={this.state.nome} onChange={this.setNome} />
                     </div>
                     <div className="form-group">
                         <label>Curso: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.curso} onChange={this.setCurso}/>
+                        <input type="text" className="form-control"
+                            value={this.state.curso} onChange={this.setCurso} />
                     </div>
                     <div className="form-group">
                         <label>IRA: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.IRA} onChange={this.setIRA}/>
+                        <input type="text" className="form-control"
+                            value={this.state.IRA} onChange={this.setIRA} />
                     </div>
 
                     <div className="form-group">
