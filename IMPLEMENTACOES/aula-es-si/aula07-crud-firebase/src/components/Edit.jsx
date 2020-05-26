@@ -23,17 +23,6 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-
-        /*this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).get()
-            .then((doc) => {
-                //console.log(res.data)
-                this.setState({
-                    nome: doc.data().nome,
-                    curso: doc.data().curso,
-                    IRA: doc.data().IRA
-                })
-            })
-            .catch(error => console.log(error))*/
         FirebaseService.retrieve(this.props.firebase.getFirestore(),
             (estudante) => {
                 if (estudante)
@@ -73,17 +62,6 @@ class Edit extends Component {
                 IRA: this.state.IRA
             }
         )
-        /*this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).set({
-            nome: this.state.nome,
-            curso: this.state.curso,
-            IRA: this.state.IRA
-        })
-            .then(() => {
-                console.log('Estudante editado.')
-            })
-            .catch(() => {
-                this.setState({ loading: false })
-            });*/
     }
 
     render() {

@@ -16,7 +16,6 @@ export default class FirebaseService {
                 })//push
             })//forEach
             callback(estudantes)
-            //this._isMounted && this.setState({ estudantes: estudantes, loading: false })
         })
 
     }

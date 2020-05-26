@@ -47,22 +47,6 @@ class Create extends Component {
                 console.log(mensagem)
             },
             estudante)
-        /*this.props.firebase.getFirestore().collection('estudantes').add({
-            nome:this.state.nome,
-            curso:this.state.curso,
-            IRA:this.state.IRA
-        })
-        .then(
-            ()=>{
-                console.log('Estudante '+this.state.nome+' inserido com sucesso.')    
-            }
-        )
-        .catch(
-            (error)=>{
-                console.log(error)
-            }
-        )*/
-
         this.setState({ nome: '', curso: '', IRA: '' })
     }
 
