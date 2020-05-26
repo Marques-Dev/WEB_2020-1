@@ -17,9 +17,6 @@ export default class TableRow extends Component {
                 (mensagem) => {
                     console.log(mensagem)
                 }, id)
-            /*this.props.firebase.getFirestore().collection('estudantes').doc(id).delete()
-            .then(()=>console.log(`${nome} apagado.`))
-            .catch((error)=>console.log(error))*/
         }
     }
 

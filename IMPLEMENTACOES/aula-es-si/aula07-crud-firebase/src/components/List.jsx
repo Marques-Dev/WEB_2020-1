@@ -16,7 +16,6 @@ class List extends Component {
         super(props)
 
         //firebase
-        this.unscribe = null
         this._isMounted = false
 
         this.state = { estudantes: [], loading: false }
@@ -27,9 +26,6 @@ class List extends Component {
         this._isMounted = true
         this.setState({ loading: true })
 
-        //firestore
-        /*this.ref = this.props.firebase.getFirestore().collection('estudantes')
-        this.unscribe = this.ref.onSnapshot(this.alimentarEstudantes.bind(this));*/
         FirebaseService.list(this.props.firebase.getFirestore(),
             (estudantes) => {
                 this._isMounted && this.setState({ estudantes: estudantes, loading: false })
@@ -39,21 +35,6 @@ class List extends Component {
     componentWillUnmount() {
         this._isMounted = false
     }
-
-    /*alimentarEstudantes(query) {
-        let estudantes = []
-
-        query.forEach((doc) => {
-            const { nome, curso, IRA } = doc.data()
-            estudantes.push({
-                _id: doc.id,
-                nome,
-                curso,
-                IRA
-            })//push
-        })//forEach
-        this._isMounted && this.setState({ estudantes: estudantes, loading: false })
-    }*/
 
     apagarElementoPorId(id) {
         let tempEstudantes = this.state.estudantes
