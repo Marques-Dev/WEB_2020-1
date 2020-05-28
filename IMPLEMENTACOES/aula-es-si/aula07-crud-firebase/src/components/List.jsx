@@ -19,7 +19,6 @@ class List extends Component {
         this._isMounted = false
 
         this.state = { estudantes: [], loading: false }
-        this.apagarElementoPorId = this.apagarElementoPorId.bind(this)
     }
 
     componentDidMount() {
@@ -36,16 +35,6 @@ class List extends Component {
         this._isMounted = false
     }
 
-    apagarElementoPorId(id) {
-        let tempEstudantes = this.state.estudantes
-        for (let i = 0; i < tempEstudantes.length; i++) {
-            if (tempEstudantes[i]._id === id) {
-                tempEstudantes.splice(i, 1)
-            }
-        }
-        this._isMounted && this.setState({ estudantes: tempEstudantes })
-    }
-
     montarTabela() {
         if (!this.state.estudantes) return
         if (this.state.loading) return this.loadingSpinner()
@@ -53,7 +42,6 @@ class List extends Component {
             (est, i) => {
                 return <TableRow estudante={est}
                     key={i}
-                    apagarElementoPorId={this.apagarElementoPorId}
                     firebase={this.props.firebase} />
             }
         )

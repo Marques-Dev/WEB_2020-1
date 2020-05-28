@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
 import FirebaseContext from '../utils/FirebaseContext'
+import FirebaseService from '../services/FirebaseService'
 
 const EditPage = (props) => (
     <FirebaseContext.Consumer>
-        {contexto => <Edit firebase={contexto} id={props.match.params.id}/> }
+        {contexto => <Edit firebase={contexto} id={props.match.params.id} />}
     </FirebaseContext.Consumer>
 )
 
@@ -21,24 +22,26 @@ class Edit extends Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    componentDidMount(){
-        this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).get()
-        .then(
-            (doc)=>{
-                this.setState({
-                    nome:doc.data().nome,
-                    curso:doc.data().curso,
-                    IRA:doc.data().IRA
-                })
-            }
+    componentDidMount() {
+        FirebaseService.retrieve(
+            this.props.firebase.getFirestore(),
+            (estudante) => {
+                if (estudante)
+                    this.setState({
+                        nome: estudante.nome,
+                        curso: estudante.curso,
+                        IRA: estudante.IRA
+                    })
+
+            },
+            this.props.id
         )
-        .catch(error=>console.log(error))
     }
 
     setNome(e) {
         this.setState({ nome: e.target.value })
     }
-    
+
     setCurso(e) {
         this.setState({ curso: e.target.value })
     }
@@ -47,21 +50,26 @@ class Edit extends Component {
         this.setState({ IRA: e.target.value })
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         e.preventDefault()
-        
-        this.props.firebase.getFirestore().collection('estudantes').doc(this.props.id).set(
-            {
-                nome: this.state.nome,
-                curso: this.state.curso,
-                IRA: this.state.IRA
-            }
+
+        const estudante = {
+            nome: this.state.nome,
+            curso: this.state.curso,
+            IRA: this.state.IRA
+        }
+
+        FirebaseService.edit(
+            this.props.firebase.getFirestore(),
+            (mensagem) => {
+                if(mensagem==='ok') console.log(`Estudante atualizado com sucesso.`)
+            },
+            estudante,
+            this.props.id
         )
-        .then(()=>{
-            console.log('Estudante atualizado')
-        })
-        .catch((error)=>{console.log(error)})
-        
+
+        this.setState({ nome: '', curso: '', IRA: '' })
+
     }
 
     render() {
@@ -72,18 +80,18 @@ class Edit extends Component {
 
                     <div className="form-group">
                         <label>Nome: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.nome} onChange={this.setNome}/>
+                        <input type="text" className="form-control"
+                            value={this.state.nome} onChange={this.setNome} />
                     </div>
                     <div className="form-group">
                         <label>Curso: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.curso} onChange={this.setCurso}/>
+                        <input type="text" className="form-control"
+                            value={this.state.curso} onChange={this.setCurso} />
                     </div>
                     <div className="form-group">
                         <label>IRA: </label>
-                        <input type="text" className="form-control" 
-                        value={this.state.IRA} onChange={this.setIRA}/>
+                        <input type="text" className="form-control"
+                            value={this.state.IRA} onChange={this.setIRA} />
                     </div>
 
                     <div className="form-group">

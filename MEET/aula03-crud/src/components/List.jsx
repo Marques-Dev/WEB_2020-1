@@ -2,44 +2,40 @@ import React, { Component } from 'react'
 
 import TableRow from './TableRow'
 import FirebaseContext from '../utils/FirebaseContext'
+import FirebaseService from '../services/FirebaseService'
 
 const ListPage = () => (
+
     <FirebaseContext.Consumer>
         {contexto => <List firebase={contexto} />}
     </FirebaseContext.Consumer>
 )
 
-
 class List extends Component {
 
     constructor(props) {
         super(props)
+        this._isMounted = false
         this.state = { estudantes: [], loading: false }
     }
 
     componentDidMount() {
-        this.setState({loading:true})
-        this.ref = this.props.firebase.getFirestore().collection('estudantes')
-        this.ref.onSnapshot(this.alimentarEstudantes.bind(this))
+        this._isMounted = true
+        this.setState({ loading: true })
+        FirebaseService.list(
+            this.props.firebase.getFirestore(),
+            (estudantes) => {
+                if (estudantes) {
+                    if (this._isMounted) {
+                        this.setState({ estudantes: estudantes, loading: false })
+                    }
+                }
+            }
+        )
     }
 
-    alimentarEstudantes(query) {
-        let estudantes = []
-        query.forEach(
-            (doc) => {
-                const { nome, curso, IRA } = doc.data()
-                estudantes.push(
-                    {
-                        _id: doc.id,
-                        nome,
-                        curso,
-                        IRA,
-                    }
-                )//push
-            }//doc
-        )//forEach
-
-        this.setState({ estudantes: estudantes, loading: false })
+    componentWillUnmount() {
+        this._isMounted = false
     }
 
     montarTabela() {
@@ -58,7 +54,7 @@ class List extends Component {
         if (this.state.loading) {
             return (
                 <tr>
-                    <td colSpan='6' style={{textAlign:"center"}}>
+                    <td colSpan='6' style={{ textAlign: "center" }}>
                         <div className="spinner-border" role="status">
                             <span className="sr-only">Loading...</span>
                         </div>
