@@ -322,8 +322,33 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Finalizando
 		</td>
 	</tr>
+	<tr>
+		<td colspan="3" align="center"><b>Minicurso REACT - Firebase Firestore</b></td>
+	</tr>
+	<tr>
+		<td>
+			AULA 12 - PARTE 01
+		</td>
+		<td>
+			https://youtu.be/GH8X0bO28nM
+		</td>
+		<td>
+			CRUD completo com React Context
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 12 - PARTE FINAL
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			Inserindo a camada de serviço
+		</td>
+	</tr>
 
-	
+
 
 </table>
 

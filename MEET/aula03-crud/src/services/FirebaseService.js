@@ -29,15 +29,15 @@ export default class FirebaseService {
     }
 
     static delete = (firestore, callback, id) => {
-
+        
         firestore.collection('estudantes').doc(id).delete()
-            .then(
-                () => callback('ok')
-            )
-            .catch(
-                error => callback('nok')
-            )
-
+        .then(
+            () => callback('ok')
+        )
+        .catch(
+            error => callback('nok')
+        )
+        
     }
 
     static create = (firestore, callback, estudante) => {

@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import Card from './components/Card';
+import Interval from './components/Interval'
+import Average from './components/operations/Average'
+import Random from './components/operations/Random'
+import Sum from './components/operations/Sum'
 
-function App() {
-  return (
-    <div className='App'>
-      <h1>Exercício React-Redux Simples</h1>
-      <div className='linha'>
-        <Card title='Card 1' red>XY</Card>
-        <Card title='Card 2' blue>XY</Card>
+class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {min:0,max:0}
+    this.setMin = this.setMin.bind(this)
+    this.setMax = this.setMax.bind(this)
+  }
+
+  setMin(min){
+    min = parseInt(min)
+    this.setState({min})
+  }
+
+  setMax(max){
+    max = parseInt(max)
+    this.setState({max})
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <h1>Exercício React-Redux Simples</h1>
+        <div className='linha'>
+          <Interval setMin={this.setMin} setMax={this.setMax}/>
+        </div>
+        <div className='linha'>
+          <Average min={this.state.min} max={this.state.max}/>
+          <Random min={this.state.min} max={this.state.max}/>
+          <Sum min={this.state.min} max={this.state.max}/>
+        </div>
       </div>
-      <div className='linha'>
-        <Card title='Card 3' green>XY</Card>
-        <Card title='Card 4' purple>XY</Card>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
