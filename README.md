@@ -338,7 +338,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			AULA 12 - PARTE FINAL
+			AULA 12 - FINAL
 		</td>
 		<td>
 			??
