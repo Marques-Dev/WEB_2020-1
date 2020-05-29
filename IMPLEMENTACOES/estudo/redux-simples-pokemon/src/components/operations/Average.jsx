@@ -1,0 +1,14 @@
+import React, { Component } from 'react'
+
+import Card from '../Card'
+
+export default class Average extends Component {
+    render() {
+        const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.props.id}.png`
+        return (
+            <Card title='Frente' gray>
+                <img src={url} alt={this.props.id} />
+            </Card>
+        )
+    }
+}
