@@ -11,7 +11,7 @@ export default class Navigate extends Component {
     }
 
     proximo() {
-        const id = (this.state.id + 1 > 100) ? this.state.id : this.state.id + 1
+        const id = (this.state.id + 1 > 500) ? this.state.id : this.state.id + 1
         this.setState({ id })
         this.props.setId(id)
     }
@@ -23,7 +23,7 @@ export default class Navigate extends Component {
     }
 
     soma10(){
-        const id = (this.state.id + 10 > 100) ? 100 : this.state.id + 10
+        const id = (this.state.id + 10 > 500) ? 500 : this.state.id + 10
         this.setState({ id })
         this.props.setId(id)
     }

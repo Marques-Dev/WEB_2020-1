@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import axios from 'axios'
 
 import Card from './Card'
 
-export default class PokemonInfo extends Component {
+class PokemonInfo extends Component {
 
     constructor(props){
         super(props)
@@ -11,10 +12,6 @@ export default class PokemonInfo extends Component {
     }
 
     componentDidMount(){
-        this.carregar()
-    }
-
-    componentDidUpdate(){
         this.carregar()
     }
 
@@ -36,12 +33,21 @@ export default class PokemonInfo extends Component {
 
     render() {
         return (
-            <Card title='Informações do Pokémon' dark>
+            <Card title={`Informações do Pokémon ${this.props.id}`}  dark>
                 <strong style={{textTransform:'capitalize'}}>{this.state.name}</strong>
                 <br />Altura: {this.state.height}
                 <br />Peso: {this.state.weight}
-                <br />Order: {this.state.order}
+                <br />Ordem: {this.state.order}
             </Card>
         )
     }
 }
+
+//mapeia o estado geral pra o props deste componente
+function mapStateToProps(state) {
+    return {
+        id: state.pokemonId.id,
+    }
+}
+
+export default connect(mapStateToProps)(PokemonInfo)
