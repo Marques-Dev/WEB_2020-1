@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Interval from './components/Interval'
-import Average from './components/operations/Average'
-import Random from './components/operations/Random'
-import Sum from './components/operations/Sum'
+import Navigate from './components/Navigate'
+import Average from './components/PokemonFront'
+import Random from './components/PokemonBack'
+import Sum from './components/PookemonInfo'
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
       <div className='container'>
         <h1>Exercício React-Redux Simples</h1>
         <div className='line'>
-          <Interval setId={this.setId}/>
+          <Navigate setId={this.setId}/>
         </div>
         <div className='line'>
           <Average id={this.state.id}/>

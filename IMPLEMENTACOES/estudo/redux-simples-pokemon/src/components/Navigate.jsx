@@ -1,9 +1,9 @@
-import './Interval.css'
+import './Navigate.css'
 import React, { Component } from 'react'
 
 import Card from './Card'
 
-export default class Interval extends Component {
+export default class Navigate extends Component {
 
     constructor(props) {
         super(props)
@@ -37,7 +37,7 @@ export default class Interval extends Component {
     render() {
         return (
             <Card title='ID do Pokémon' blue>
-                <div className='interval'>
+                <div className='navigate'>
                     <button
                         className='btn btn-secondary'
                         onClick={() => this.subtrai10()}>

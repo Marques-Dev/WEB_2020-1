@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Card from '../Card'
+import Card from './Card'
 
 export default class Random extends Component {
 

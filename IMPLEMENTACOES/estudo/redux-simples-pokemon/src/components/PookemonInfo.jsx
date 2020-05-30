@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import Card from '../Card'
+import Card from './Card'
 
-export default class Sum extends Component {
+export default class PokemonInfo extends Component {
 
     constructor(props){
         super(props)
