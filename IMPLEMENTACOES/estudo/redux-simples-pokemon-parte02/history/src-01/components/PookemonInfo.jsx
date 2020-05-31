@@ -15,6 +15,13 @@ class PokemonInfo extends Component {
         this.carregar()
     }
 
+    componentDidUpdate(prevProps){
+        if(this.props.id !== prevProps.id){
+            console.log(this.props.id + ' ' + prevProps.id)
+            this.carregar()
+        }
+    }
+
     carregar(){
         const url = `https://pokeapi.co/api/v2/pokemon/${this.props.id}`
         axios.get(url)

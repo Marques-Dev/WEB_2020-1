@@ -15,8 +15,11 @@ class PokemonInfo extends Component {
         this.carregar()
     }
 
-    componentDidUpdate(){
-        this.carregar()
+    componentDidUpdate(prevProps){
+        if(this.props.id !== prevProps.id){
+            console.log(this.props.id + ' ' + prevProps.id)
+            this.carregar()
+        }
     }
 
     carregar(){
