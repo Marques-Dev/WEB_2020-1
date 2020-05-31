@@ -7,25 +7,25 @@ import  { alterarId } from '../store/actions/pokemonId'
 
 class Navigate extends Component {
 
-    constructor(props) {
-        super(props)
-        this.props.alterarPokemonId(311)
-    }
-
     proximo() {
-        //const id = (this.state.id + 1 > 500) ? this.state.id : this.state.id + 1
+        const novoId = (this.props.id + 1 > 500) ? this.props.id : this.props.id + 1
+        this.props.alterarPokemonId(novoId)
+        
     }
 
     anterior() {
-        //var id = (this.state.id - 1 < 1) ? this.state.id : this.state.id - 1
+        const novoId = (this.props.id - 1 < 1) ? this.props.id : this.props.id - 1
+        this.props.alterarPokemonId(novoId)
     }
 
     soma10(){
-        //const id = (this.state.id + 10 > 500) ? 500 : this.state.id + 10
+        const novoId = (this.props.id + 10 > 500) ? 500 : this.props.id + 10
+        this.props.alterarPokemonId(novoId)
     }
 
     subtrai10() {
-        //var id = (this.state.id - 10 < 1) ? 1 : this.state.id - 10
+        const novoId = (this.props.id - 10 < 1) ? 1 : this.props.id - 10
+        this.props.alterarPokemonId(novoId)
     }
 
     render() {
@@ -68,8 +68,7 @@ function mapStateToProps(state) {
 
 //mapeia o actioncreator para o props deste componente
 //a função action creator já vai pro props do componente
-//alterarPokemonId(dentro de Navigate.jsx) --> alterarId(dentro de PokemonId)
-function mapActionCreatorToProps(dispatch){
+function mapDispatchToProps(dispatch){
     return {
         alterarPokemonId(novoId){
             const action = alterarId(novoId)
@@ -79,4 +78,4 @@ function mapActionCreatorToProps(dispatch){
 }
 
 //linkando as duas funções acima
-export default connect(mapStateToProps,mapActionCreatorToProps)(Navigate)
+export default connect(mapStateToProps,mapDispatchToProps)(Navigate)
