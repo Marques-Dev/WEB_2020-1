@@ -341,10 +341,35 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 12 - FINAL
 		</td>
 		<td>
-			uploading...
+			https://youtu.be/KDN6xxxD0tQ
 		</td>
 		<td>
 			Inserindo a camada de serviço
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><b>Minicurso REACT - Redux</b></td>
+	</tr>
+	<tr>
+		<td>
+			AULA 13 - PARTE 01
+		</td>
+		<td>
+			??
+		</td>
+		<td>
+			??
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 13 - FINAL
+		</td>
+		<td>
+			??
+		</td>
+		<td>
+			??
 		</td>
 	</tr>
 
