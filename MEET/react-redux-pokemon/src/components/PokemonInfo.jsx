@@ -13,6 +13,11 @@ export default class PokemonInfo extends Component {
         this.loadPokemon()
     }
 
+    componentDidUpdate(propsAnterior){
+        if(propsAnterior.id !== this.props.id)
+            this.loadPokemon()
+    }
+
     loadPokemon(){
         const url = `https://pokeapi.co/api/v2/pokemon/${this.props.id}`
         axios.get(url)
