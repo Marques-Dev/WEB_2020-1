@@ -5,15 +5,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux'
-import storeConfig from './store/storeConfig'
-
 ReactDOM.render(
-  <Provider store={storeConfig()}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 
