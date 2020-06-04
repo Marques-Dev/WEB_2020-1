@@ -57,4 +57,5 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(PokemonInfo)
+const conexaoPokemonInfo = connect(mapStateToProps)(PokemonInfo)
+export {conexaoPokemonInfo}

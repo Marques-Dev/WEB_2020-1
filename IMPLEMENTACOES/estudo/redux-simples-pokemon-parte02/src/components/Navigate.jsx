@@ -78,4 +78,5 @@ function mapDispatchToProps(dispatch){
 }
 
 //linkando as duas funções acima
-export default connect(mapStateToProps,mapDispatchToProps)(Navigate)
+const conexaoNavigate = connect(mapStateToProps,mapDispatchToProps)(Navigate)
+export {conexaoNavigate}

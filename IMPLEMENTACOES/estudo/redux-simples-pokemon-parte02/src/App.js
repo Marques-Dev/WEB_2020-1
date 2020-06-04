@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import Navigate from './components/Navigate'
+
+import {
+  conexaoNavigate as Navigate,
+  conexaoPokemonBack as PokemonBack,
+  conexaoPokemonFront as PokemonFront,
+  conexaoPokemonInfo as PookemonInfo} from './components'
+
+/*import Navigate from './components/Navigate'
 import Average from './components/PokemonFront'
 import Random from './components/PokemonBack'
-import Sum from './components/PookemonInfo'
+import Sum from './components/PookemonInfo'*/
 
 class App extends Component {
 
@@ -15,9 +22,9 @@ class App extends Component {
           <Navigate />
         </div>
         <div className='line'>
-          <Average />
-          <Random />
-          <Sum />
+          <PokemonFront />
+          <PokemonBack />
+          <PookemonInfo />
         </div>
       </div>
     );

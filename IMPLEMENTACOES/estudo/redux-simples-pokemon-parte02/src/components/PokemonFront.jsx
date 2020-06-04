@@ -21,4 +21,5 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(PokemonFront)
+const conexaoPokemonFront = connect(mapStateToProps)(PokemonFront)
+export {conexaoPokemonFront}
