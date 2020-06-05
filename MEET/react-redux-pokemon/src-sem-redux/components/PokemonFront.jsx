@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import Card from './Card'
 
-import { connect } from 'react-redux'
-
-class PokemonFront extends Component {
+export default class PokemonFront extends Component {
     render() {
         const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.props.id}.png`
         return (
@@ -13,12 +11,3 @@ class PokemonFront extends Component {
         )
     }
 }
-
-function mapStateToProps(state) {
-    return {
-        id: state.pokemonId.id
-    }
-}
-
-const conexaoPokemonFront = connect(mapStateToProps)(PokemonFront)
-export {conexaoPokemonFront}
