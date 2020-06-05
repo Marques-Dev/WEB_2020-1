@@ -355,10 +355,10 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 13 - PARTE 01
 		</td>
 		<td>
-			??
+			https://youtu.be/Wda3efSsYVE
 		</td>
 		<td>
-			??
+			Aplicação Pokémon, SEM Redux
 		</td>
 	</tr>
 	<tr>
