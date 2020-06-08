@@ -366,10 +366,10 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 13 - FINAL
 		</td>
 		<td>
-			??
+			https://youtu.be/HfREjh6hUeU
 		</td>
 		<td>
-			??
+			Aplicação Pokémon, COM Redux
 		</td>
 	</tr>
 
