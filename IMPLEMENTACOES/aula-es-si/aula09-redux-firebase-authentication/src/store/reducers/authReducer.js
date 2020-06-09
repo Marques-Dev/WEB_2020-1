@@ -29,6 +29,17 @@ export default function (state = INITIAL_STATE, action) {
         ...state,
         authMsg: action.payload.authMsg
       }
+    case SIGNIN_SUCCESS:
+      return {
+        ...state,
+        authMsg: action.payload.authMsg,
+        user: action.payload.user
+      }
+    case SIGNIN_ERROR:
+      return {
+        ...state,
+        authMsg: action.payload.authMsg
+      }
     default:
       return state
   }

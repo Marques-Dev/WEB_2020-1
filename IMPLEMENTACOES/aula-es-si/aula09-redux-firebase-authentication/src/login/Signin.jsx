@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { signin } from '../store/actions/authActionCreator'
 
 class Signin extends Component {
 
@@ -8,6 +10,7 @@ class Signin extends Component {
 
         this.setLogin = this.setLogin.bind(this)
         this.setPassword = this.setPassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     setLogin(e) {
@@ -21,7 +24,22 @@ class Signin extends Component {
     onSubmit(e) {
         e.preventDefault()
 
+        this.props.signin(this.state.login,this.state.password,()=>{
+            console.log('ok')
+        })
+
         this.setState({ login: '', password: '' })
+    }
+
+    renderMessage() {
+        if (this.props.authMsg) {
+            let alertType = this.props.authMsg.includes('Err') ? 'alert-danger' : 'alert-info'
+            return (
+                <div className={`alert ${alertType}`} role='alert'>
+                    {this.props.authMsg}
+                </div>
+            )
+        }
     }
 
     render() {
@@ -47,6 +65,7 @@ class Signin extends Component {
                                 <input type="submit" value="Efetuar Login" className="btn btn-primary" />
                             </div>
                         </form>
+                        {this.renderMessage()}
                     </div>
                 </div>
             </div>
@@ -54,4 +73,21 @@ class Signin extends Component {
     }
 }
 
-export default Signin
+function mapStateToProps(state) {
+    return {
+        authMsg: state.authReducer.authMsg
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        signin(login, password, callback) {
+            const action = signin(login, password, callback)
+            dispatch(action)
+        }
+    }
+}
+
+export default connect(
+    mapStateToProps, mapDispatchToProps
+)(Signin);

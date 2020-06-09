@@ -11,7 +11,7 @@ export const signup = (email, password, callback) => async dispatch => {
                         if (user) {
                             dispatch({
                                 type: SIGNUP_SUCCESS,
-                                payload: { authMsg: 'Conta criada com sucesso!', user: user.email }
+                                payload: { authMsg: 'Signin efetuado com sucesso!', user: user.email }
                             })
                             callback(user)
                         } else {
@@ -85,7 +85,15 @@ export const signin = (email, password, callback) => async dispatch => {
         firebase
         .auth()
         .signInWithEmailAndPassword(email,password)
-        .then()
+        .then(
+            (data)=>{
+                dispatch({
+                    type: SIGNIN_SUCCESS,
+                    payload: { authMsg: 'Conta criada com sucesso!', user: data.user.email }
+                })
+                callback(data.user)
+            }
+        )
         .catch(
             (error)=>{
                 dispatch({
