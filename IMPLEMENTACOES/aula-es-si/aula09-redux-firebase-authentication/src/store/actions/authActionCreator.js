@@ -82,6 +82,20 @@ export const signout = (callback) => async dispatch => {
 export const signin = (email, password, callback) => async dispatch => {
     try{
 
+        firebase
+        .auth()
+        .signInWithEmailAndPassword(email,password)
+        .then()
+        .catch(
+            (error)=>{
+                dispatch({
+                    type: SIGNIN_ERROR,
+                    payload: { authMsg: `Erro no processo de signin : ${error}` }
+                })
+                callback()
+            }
+        )
+
     }catch(error){
         dispatch({
             type: SIGNIN_ERROR,
