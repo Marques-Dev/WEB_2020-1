@@ -22,7 +22,7 @@ const store = createStore(
 
 const rrfProps = {
   firebase,
-  config: { userProfile: 'users' },
+  config: { },
   dispatch: store.dispatch,
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { signup } from '../store/actions/authActionCreator'
 
 class Signup extends Component {
 
@@ -9,6 +10,7 @@ class Signup extends Component {
 
         this.setLogin = this.setLogin.bind(this)
         this.setPassword = this.setPassword.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
     }
 
     setLogin(e) {
@@ -22,7 +24,22 @@ class Signup extends Component {
     onSubmit(e) {
         e.preventDefault()
 
+        this.props.signup(this.state.login, this.state.password, () => {
+            console.log(this.props.authMsg)
+        })
+
         this.setState({ login: '', password: '' })
+    }
+
+    renderMessage() {
+        if (this.props.authMsg) {
+            let alertType = this.props.authMsg.includes('Err')? 'alert-danger' : 'alert-info'
+            return (
+                <div className={`alert ${alertType}`} role='alert'>
+                    {this.props.authMsg}
+                </div>
+            )
+        }
     }
 
     render() {
@@ -45,7 +62,7 @@ class Signup extends Component {
                         <input type="submit" value="Efetuar Cadastro" className="btn btn-primary" />
                     </div>
                 </form>
-
+                {this.renderMessage()}
             </div>
         )
     }
@@ -57,7 +74,16 @@ function mapStateToProps(state) {
     };
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        signup(login, password, callback) {
+            const action = signup(login, password, callback)
+            dispatch(action)
+        }
+    }
+}
+
 export default connect(
-    mapStateToProps
+    mapStateToProps, mapDispatchToProps
 )(Signup);
 

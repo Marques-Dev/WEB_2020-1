@@ -1,7 +1,7 @@
 import {SIGNUP_SUCCESS,SIGNUP_ERROR} from '../actions/actionTypes'
 
 const INITIAL_STATE = {
-    authMsg: "Teste"
+    authMsg: null
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -9,6 +9,7 @@ export default function(state = INITIAL_STATE, action) {
       action.type === SIGNUP_SUCCESS ||
       action.type === SIGNUP_ERROR )
     {
+      //console.log('payload: ' + action.payload)
       return { ...state, authMsg: action.payload };
     } else {
       return state;
