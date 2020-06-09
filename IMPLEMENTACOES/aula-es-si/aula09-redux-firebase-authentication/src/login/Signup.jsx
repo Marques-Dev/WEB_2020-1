@@ -24,7 +24,7 @@ class Signup extends Component {
     onSubmit(e) {
         e.preventDefault()
 
-        this.props.signup(this.state.login, this.state.password, () => {
+        this.props.signup(this.state.login, this.state.password, (user) => {
             console.log(this.props.authMsg)
         })
 
@@ -33,7 +33,7 @@ class Signup extends Component {
 
     renderMessage() {
         if (this.props.authMsg) {
-            let alertType = this.props.authMsg.includes('Err')? 'alert-danger' : 'alert-info'
+            let alertType = this.props.authMsg.includes('Err') ? 'alert-danger' : 'alert-info'
             return (
                 <div className={`alert ${alertType}`} role='alert'>
                     {this.props.authMsg}
@@ -44,25 +44,30 @@ class Signup extends Component {
 
     render() {
         return (
-            <div style={{ marginTop: 10 }}>
-                <h3>Sign-Up</h3>
-                <form onSubmit={this.onSubmit}>
-
-                    <div className="form-group">
-                        <label>Login: </label>
-                        <input type="text" className="form-control"
-                            value={this.state.login} onChange={this.setLogin} />
+            <div className='content'>
+                <div className='card'>
+                    <div className="card-header">
+                        Sign-Up
                     </div>
-                    <div className="form-group">
-                        <label>Senha: </label>
-                        <input type="password" className="form-control"
-                            value={this.state.password} onChange={this.setPassword} />
+                    <div className="card-body">
+                        <form onSubmit={this.onSubmit}>
+                            <div className="form-group">
+                                <label>Login: </label>
+                                <input type="text" className="form-control"
+                                    value={this.state.login} onChange={this.setLogin} />
+                            </div>
+                            <div className="form-group">
+                                <label>Senha: </label>
+                                <input type="password" className="form-control"
+                                    value={this.state.password} onChange={this.setPassword} />
+                            </div>
+                            <div className="form-group">
+                                <input type="submit" value="Cadastrar" className="btn btn-primary" />
+                            </div>
+                        </form>
+                        {this.renderMessage()}
                     </div>
-                    <div className="form-group">
-                        <input type="submit" value="Efetuar Cadastro" className="btn btn-primary" />
-                    </div>
-                </form>
-                {this.renderMessage()}
+                </div>
             </div>
         )
     }

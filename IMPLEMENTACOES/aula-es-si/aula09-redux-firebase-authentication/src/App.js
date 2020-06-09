@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+
 
 import Main from './components/Main'
 import Signin from './login/Signin'
 import Signup from './login/Signup'
+import Content from './components/Content'
 
-export default class App extends Component {
+class App extends Component {
 
   render() {
     return (
@@ -25,16 +27,31 @@ export default class App extends Component {
                 <li>
                   <Link to={'/signup'} className='nav-link'>Sign-Up</Link>
                 </li>
+                <li>
+                  <Link to={'/content'} className='nav-link'>Content</Link>
+                </li>
               </ul>
             </div>
+            {this.props.user}
           </nav>
           <Switch>
             <Route exact path='/' component={Main} />
             <Route path='/signin' component={Signin} />
             <Route path='/signup' component={Signup} />
+            <Route path='/content' component={Content} />
           </Switch>
         </div>
       </Router>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+      user: state.authReducer.user
+  };
+}
+
+export default connect(
+  mapStateToProps
+)(App);
