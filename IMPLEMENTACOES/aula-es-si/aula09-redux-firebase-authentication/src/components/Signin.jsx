@@ -26,7 +26,7 @@ class Signin extends Component {
         e.preventDefault()
 
         this.props.signin(this.state.login, this.state.password, () => {
-            console.log('ok')
+            
         })
 
         this.setState({ login: '', password: '' })

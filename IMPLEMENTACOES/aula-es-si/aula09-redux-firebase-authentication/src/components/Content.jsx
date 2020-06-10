@@ -14,7 +14,6 @@ class Content extends Component {
     logout() {
         this.props.signout(
             () => {
-                //console.log(this.props.authMsg)
                 this.props.history.push('/signin')
             }
         )
