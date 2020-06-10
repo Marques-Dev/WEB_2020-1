@@ -1,39 +1,33 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signout } from '../store/actions/authActionCreator'
+import Card from './Card'
 
-class Content extends Component{
+class Content extends Component {
 
-    componentDidMount(){
-        if (this.props.auth.isLoaded && this.props.auth.isEmpty){
+    componentDidMount() {
+        if (this.props.auth.isLoaded && this.props.auth.isEmpty) {
             this.props.history.push('/signin')
         }
     }
 
-    logout(){
+    logout() {
         this.props.signout(
-            ()=>{
+            () => {
                 //console.log(this.props.authMsg)
                 this.props.history.push('/signin')
             }
         )
     }
 
-    render(){
+    render() {
         return (
-        <div className='content'>
-            <div className='card'>
-                <div className='card-header'>
-                    Conteúdo do Site
-                </div>
-                <div className='card-body'>
-                    Conteúdo apenas para usuários <br /><br />
-                    <button className='btn btn-danger' onClick={()=>this.logout()}>
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
+            <Card title='Conteúdo do Site'>
+                Conteúdo apenas para usuários <br /><br />
+                <button className='btn btn-danger' onClick={() => this.logout()}>
+                    Logout
+                </button>
+            </Card>
         )
     }
 }
@@ -57,5 +51,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    mapStateToProps,mapDispatchToProps
+    mapStateToProps, mapDispatchToProps
 )(Content);

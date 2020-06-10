@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 
 import Main from './components/Main'
-import Signin from './login/Signin'
-import Signup from './login/Signup'
+import Signin from './components/Signin'
+import Signup from './components/Signup'
 import Content from './components/Content'
 
 class App extends Component {
