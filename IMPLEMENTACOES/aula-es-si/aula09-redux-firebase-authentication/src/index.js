@@ -23,7 +23,7 @@ const store = createStore(
 
 const rrfProps = {
   firebase,
-  config: { },
+  config: {},
   dispatch: store.dispatch,
 }
 

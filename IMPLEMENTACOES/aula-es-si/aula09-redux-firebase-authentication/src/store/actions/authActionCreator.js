@@ -100,7 +100,7 @@ export const signin = (email, password, callback) => async dispatch => {
                 (error) => {
                     dispatch({
                         type: SIGNIN_ERROR,
-                        payload: { authMsg: `Erro no processo de signin : ${error}` }
+                        payload: { authMsg: `Erro no processo de signin [${error.code}]: ${error}` }
                     })
                     callback()
                 }
