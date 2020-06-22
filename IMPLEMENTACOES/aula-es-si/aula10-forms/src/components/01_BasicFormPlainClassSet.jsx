@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class BasicformV1PlainClass extends Component {
+export default class BasicFormPlainClassSet extends Component {
 
     constructor(props) {
         super(props)
