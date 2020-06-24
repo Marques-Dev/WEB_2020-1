@@ -47,7 +47,7 @@ export default () => {
                             <div>
                                 <label htmlFor="firstName">First Name: </label>
                                 <input
-
+                                    id="firstName"
                                     name="firstName"
                                     {...formik.getFieldProps('firstName')}
                                 />
@@ -56,7 +56,7 @@ export default () => {
                             <div>
                                 <label htmlFor="lastName">Last Name: </label>
                                 <input
-
+                                    id="lastName"
                                     name="lastName"
                                     {...formik.getFieldProps('lastName')}
                                 />
@@ -65,7 +65,7 @@ export default () => {
                             <div>
                                 <label htmlFor="email">Email Address: </label>
                                 <input
-
+                                    id="email"
                                     name="email"
                                     {...formik.getFieldProps('email')}
                                 />
