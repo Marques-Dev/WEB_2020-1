@@ -46,7 +46,7 @@ export default class BasicFormPlainClassSet extends Component {
     render() {
         return (
             <div>
-                <h1>Formulário Básico</h1>
+                <h1>Formulário Básico 01</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="firstName">First Name: </label>
