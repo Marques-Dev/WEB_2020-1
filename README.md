@@ -14,7 +14,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 		<td>
 			AULA 00
 		</td>
-		<td>
+		<td width="40%">
 			https://youtu.be/ItmfVty5I6s
 		</td>
 		<td>
