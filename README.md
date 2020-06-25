@@ -397,7 +397,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			https://youtu.be/qPAWTmvgGJ0
 		</td>
 		<td>
-			Login, Cadastro e Logout. Acesso restrito.
+			Persistência do estado geral <br /> entre refreshes, confirmação de e-mail.
 		</td>
 	</tr>
 	<!--<tr>
