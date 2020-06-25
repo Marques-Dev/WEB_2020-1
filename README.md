@@ -388,16 +388,16 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			Teste
+			AULA 14 
 		</td>
 		<td>
-			TEste
-			
+			https://youtu.be/2ZjYm5Lp6zI
 		</td>
 		<td>
-			Teste
+			Login, Cadastro e Logout. Acesso restrito.
 		</td>
 	</tr>
+	
 	
 
 </table>
