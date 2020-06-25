@@ -33,7 +33,7 @@ export default () => {
         <div>
             <h1>Formulário Básico 09</h1>
             <form onSubmit={formik.handleSubmit}>
-                <div>
+                <div className="form-group">
                     <label htmlFor="firstName">First Name: </label>
                     <input
                         id="firstName"
@@ -42,10 +42,11 @@ export default () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.firstName}
+                        className={formik.touched.firstName ? (formik.errors.firstName ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
                     />
-                    {formik.touched.firstName && formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+                    {formik.touched.firstName && formik.errors.firstName ? <div className="invalid-feedback">{formik.errors.firstName}</div> : null}
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="lastName">Last Name: </label>
                     <input
                         id="lastName"
@@ -54,10 +55,11 @@ export default () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.lastName}
+                        className={formik.touched.lastName ? (formik.errors.lastName ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
                     />
-                    {formik.touched.lastName && formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
+                    {formik.touched.lastName && formik.errors.lastName ? <div className="invalid-feedback">{formik.errors.lastName}</div> : null}
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="email">Email Address: </label>
                     <input
                         id="email"
@@ -66,11 +68,13 @@ export default () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.email}
+                        className={formik.touched.email ? (formik.errors.email ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
                     />
-                    {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
+                    <small id="email" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                    {formik.touched.email && formik.errors.email ? <div className="invalid-feedback">{formik.errors.email}</div> : null}
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button className="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
         </div>

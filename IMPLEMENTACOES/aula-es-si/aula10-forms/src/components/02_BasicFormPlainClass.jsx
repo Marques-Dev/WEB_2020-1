@@ -28,7 +28,7 @@ export default class BasicFormPlainClass extends Component {
             <div>
                 <h1>Formulário Básico 02</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="firstName">First Name: </label>
                         <input
                             id="firstName"
@@ -36,9 +36,10 @@ export default class BasicFormPlainClass extends Component {
                             type="text"
                             onChange={this.handleChange}
                             value={this.state.firstName}
+                            className="form-control"
                         />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="lastName">Last Name: </label>
                         <input
                             id="lastName"
@@ -46,9 +47,10 @@ export default class BasicFormPlainClass extends Component {
                             type="text"
                             onChange={this.handleChange}
                             value={this.state.lastName}
+                            className="form-control"
                         />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="email">Email Address: </label>
                         <input
                             id="email"
@@ -56,10 +58,12 @@ export default class BasicFormPlainClass extends Component {
                             type="email"
                             onChange={this.handleChange}
                             value={this.state.email}
+                            className="form-control"
                         />
+                        <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </form>
             </div>

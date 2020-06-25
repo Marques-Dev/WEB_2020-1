@@ -24,7 +24,7 @@ export default () => {
         <div>
             <h1>Formulário Básico 04</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="form-group">
                     <label htmlFor="firstName">First Name: </label>
                     <input
                         id="firstName"
@@ -32,9 +32,10 @@ export default () => {
                         type="text"
                         onChange={handleChange}
                         value={values.firstName}
+                        className="form-control"
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="lastName">Last Name: </label>
                     <input
                         id="lastName"
@@ -42,9 +43,10 @@ export default () => {
                         type="text"
                         onChange={handleChange}
                         value={values.lastName}
+                        className="form-control"
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="email">Email Address: </label>
                     <input
                         id="email"
@@ -52,10 +54,12 @@ export default () => {
                         type="email"
                         onChange={handleChange}
                         value={values.email}
+                        className="form-control"
                     />
+                    <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button className="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
         </div>

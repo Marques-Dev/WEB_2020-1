@@ -46,51 +46,62 @@ export default () => {
                 }
             }
         >
+        {
+            (props) => (
             <div>
                 <h1>Formulário Básico 12</h1>
                 <Form>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="firstName">First Name: </label>
-                        <Field name="firstName" id="firstName" type="text" />
-                        <div>
-                            <ErrorMessage name="firstName" />
+                        <Field name="firstName" id="firstName" type="text"
+                         className={props.touched.firstName ? (props.errors.firstName ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}/>
+                        <div className="invalid-feedback">
+                            <ErrorMessage name="firstName"/>
                         </div>
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="lastName">Last Name: </label>
-                        <Field name="lastName" id="lastName" type="text" />
-                        <div>
+                        <Field name="lastName" id="lastName" type="text"
+                        className={props.touched.lastName ? (props.errors.lastName ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}/>
+                        <div className="invalid-feedback">
                             <ErrorMessage name="lastName" />
                         </div>
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="email">Email Address: </label>
-                        <Field name="email" id="email" type="email" />
-                        <div>
+                        <Field name="email" id="email" type="email"
+                        className={props.touched.email ? (props.errors.email ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+                        />
+                        <div className="invalid-feedback">
                             <ErrorMessage name="email" />
                         </div>
                     </div>
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="colors">Colors: </label>
-                        <Field name="colors" id="colors" as="select">
+                        <Field name="colors" id="colors" as="select"
+                        className="custom-select"
+                        >
                             <option value="red">Red</option>
                             <option value="green">Green</option>
                             <option value="blue">Blue</option>
                         </Field>
                     </div>
-                    <div>
+                    <div className="form-group"> 
                         <label htmlFor="bigText">Comments: </label>
-                        <Field name="bigText" id="bigText" as="textarea" rows="10" cols="50" />
-                        <div>
+                        <Field name="bigText" id="bigText" as="textarea"
+                        className={props.touched.bigText ? (props.errors.bigText ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+                        />
+                        <div className="invalid-feedback">
                             <ErrorMessage name="bigText" />
                         </div>
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </Form>
             </div>
-
+            )
+        }
         </Formik>
     )
 }

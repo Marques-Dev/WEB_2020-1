@@ -17,15 +17,21 @@ export default () => {
         <div>
             <h1>Formulário Básico 05</h1>
             <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="email">Email Address</label>
-                <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                />
-                <button type="submit">Submit</button>
+                <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                        className="form-control"
+                    />
+                    <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div>
+                    <button className="btn btn-primary" type="submit">Submit</button>
+                </div>
             </form>
         </div>
     )

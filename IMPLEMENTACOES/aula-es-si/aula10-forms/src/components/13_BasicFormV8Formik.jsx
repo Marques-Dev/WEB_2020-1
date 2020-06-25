@@ -22,6 +22,7 @@ const MyCheckbox = ({ children, ...props }) => {
     // since React treats radios and checkboxes differently
     // than inputs/select/textarea.
     const [field, meta] = useField({ ...props, type: 'checkbox' });
+    
     return (
         <>
             <label>
@@ -36,13 +37,18 @@ const MyCheckbox = ({ children, ...props }) => {
 };
 
 const MyRadio = ({ children, ...props }) => {
-    const [field] = useField({ ...props, type: 'radio' });
+    const [field, meta] = useField({ ...props, type: 'radio' });
+    //console.log(meta.value)
+    //console.log(props)
     return (
         <>
             <label>
                 <input type="radio" {...field} {...props} />
                 {children}
             </label>
+            {meta.touched && meta.error ? (
+                <div>{meta.error}</div>
+            ) : null}
         </>
     );
 };
@@ -83,7 +89,7 @@ export default () => {
                     email: '',
                     read: false,
                     job: '',
-                    lang: '',
+                    lang: 'java',
                     bigText: ''
                 }
             }
@@ -108,6 +114,8 @@ export default () => {
                     .required('Required'),
                 bigText: Yup.string()
                     .max(100, 'Must be 100 characters or less')
+                    .required('Required'),
+                lang: Yup.string()
                     .required('Required')
             })}
             onSubmit={
