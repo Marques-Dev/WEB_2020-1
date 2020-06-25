@@ -391,7 +391,10 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 14 
 		</td>
 		<td>
-			https://youtu.be/2ZjYm5Lp6zI
+			https://youtu.be/xvWly76qS3I <br />
+			https://youtu.be/8kbi9rqEJhY <br />
+			https://youtu.be/eQ5dW2rsn-Y <br />
+			https://youtu.be/qPAWTmvgGJ0
 		</td>
 		<td>
 			Login, Cadastro e Logout. Acesso restrito.
