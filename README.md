@@ -386,6 +386,21 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Login, Cadastro e Logout. Acesso restrito.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			AULA 14  - (PARTES 02/03/04/FINAL)
+		</td>
+		<td>
+			https://youtu.be/xvWly76qS3I <br />
+			https://youtu.be/8kbi9rqEJhY <br />
+			https://youtu.be/eQ5dW2rsn-Y <br />
+			https://youtu.be/qPAWTmvgGJ0
+			
+		</td>
+		<td>
+			Persistência do estado geral entre refreshes, confirmação de e-mail.
+		</td>
+	</tr>
 
 </table>
 
