@@ -45,7 +45,7 @@ const MyCheckbox = ({ children, ...props }) => {
 const MyRadio = ({ children, ...props }) => {
     const [field] = useField({ ...props, type: 'radio' });
     return (
-        <div className="form-check">
+        <div>
             <input type="radio" {...field} {...props}
                 className="form-check-input"
             />
