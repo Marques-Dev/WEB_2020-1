@@ -71,7 +71,7 @@ const MyRadioGroup = (props) => {
     return (
         <div className="form-group">
             {props.label}
-            <table>
+            <table style={{marginTop:'15px'}}>
                 <tbody>
                     <tr>
                         {radiosJSX}
