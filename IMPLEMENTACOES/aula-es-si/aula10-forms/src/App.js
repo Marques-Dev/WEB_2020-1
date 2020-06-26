@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 
 //import BasicForm from './components/01_BasicFormPlainClassSet'
 //import BasicForm from './components/02_BasicFormPlainClass'
@@ -12,7 +13,9 @@ import React from 'react';
 //import BasicForm from './components/10_BasicFormV5Formik'
 //import BasicForm from './components/11_BasicFormV6Formik' 
 //import BasicForm from './components/12_BasicFormV7Formik' 
-import BasicForm from './components/13_BasicFormV8Formik'
+//import BasicForm from './components/13_BasicFormV8Formik'
+//import BasicForm from './components/14_BasicFormV9Formik'
+import BasicForm from './components/15_BasicFormV10Formik'
 
 function App() {
   return (
