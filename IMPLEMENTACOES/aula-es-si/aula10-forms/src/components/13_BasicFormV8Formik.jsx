@@ -7,13 +7,15 @@ const MyTextInput = ({ label, ...props }) => {
     // which we can spread on <input> and also replace ErrorMessage entirely.
     const [field, meta] = useField(props);
     return (
-        <>
+        <div className="form-group">
             <label htmlFor={props.id || props.name}>{label}</label>
-            <input {...field} {...props} />
+            <input {...field} {...props}
+                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+            />
             {meta.touched && meta.error ? (
-                <div>{meta.error}</div>
+                <div className="invalid-feedback">{meta.error}</div>
             ) : null}
-        </>
+        </div>
     );
 };
 
@@ -22,60 +24,65 @@ const MyCheckbox = ({ children, ...props }) => {
     // since React treats radios and checkboxes differently
     // than inputs/select/textarea.
     const [field, meta] = useField({ ...props, type: 'checkbox' });
-    
+
     return (
-        <>
-            <label>
-                <input type="checkbox" {...field} {...props} />
-                {children}
-            </label>
-            {meta.touched && meta.error ? (
-                <div>{meta.error}</div>
-            ) : null}
-        </>
+        <div className="form-group">
+            <div className="custom-control">
+                <input type="checkbox" {...field} {...props}
+                    className={meta.touched ? (meta.error ? 'custom-control-input is-invalid' : 'custom-control-input is-valid') : 'custom-control-input'}
+                />
+                <label className="custom-control-label" htmlFor={props.id || props.name}>
+                    {children}
+                </label>
+                {meta.touched && meta.error ? (
+                    <div className="invalid-feedback">{meta.error}</div>
+                ) : null}
+            </div>
+        </div>
     );
 };
 
 const MyRadio = ({ children, ...props }) => {
-    const [field, meta] = useField({ ...props, type: 'radio' });
-    //console.log(meta.value)
-    //console.log(props)
+    const [field] = useField({ ...props, type: 'radio' });
     return (
-        <>
-            <label>
-                <input type="radio" {...field} {...props} />
+        <div className="form-check">
+            <input type="radio" {...field} {...props}
+                className="form-check-input"
+            />
+            <label className="form-check-label" htmlFor={props.id}>
                 {children}
             </label>
-            {meta.touched && meta.error ? (
-                <div>{meta.error}</div>
-            ) : null}
-        </>
+        </div>
     );
 };
 
 const MySelect = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
-        <>
+        <div className="form-group">
             <label htmlFor={props.id || props.name}>{label}</label>
-            <select {...field} {...props} />
+            <select {...field} {...props}
+                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
+            />
             {meta.touched && meta.error ? (
-                <div>{meta.error}</div>
+                <div className="invalid-feedback">{meta.error}</div>
             ) : null}
-        </>
+        </div>
     );
 };
 
 const MyTextArea = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
-        <>
+        <div className="form-group">
             <label htmlFor={props.id || props.name}>{label}</label>
-            <textarea {...field} {...props} />
+            <textarea {...field} {...props}
+                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+            />
             {meta.touched && meta.error ? (
-                <div>{meta.error}</div>
+                <div className="invalid-feedback">{meta.error}</div>
             ) : null}
-        </>
+        </div>
     );
 };
 
@@ -175,20 +182,15 @@ export default () => {
                             <option value="other">Other</option>
                         </MySelect>
                     </div>
-                    <div>
-                        <MyCheckbox name="read" id="read">
-                            I accept the terms and conditions
-                        </MyCheckbox>
-                    </div>
-                    <div>
+                    <div className="form-group">
                         Prefered programming language:
-                        <MyRadio name="lang" id="lang" value="java">
+                        <MyRadio name="lang" id="java" value="java">
                             Java
                         </MyRadio>
-                        <MyRadio name="lang" id="lang" value="cplusplus">
+                        <MyRadio name="lang" id="cplusplus" value="cplusplus">
                             C++
                         </MyRadio>
-                        <MyRadio name="lang" id="lang" value="python">
+                        <MyRadio name="lang" id="python" value="python">
                             Python
                         </MyRadio>
                     </div>
@@ -202,7 +204,12 @@ export default () => {
                             placeholder="Comment here..." />
                     </div>
                     <div>
-                        <button type="submit">Submit</button>
+                        <MyCheckbox name="read" id="read">
+                            I accept the terms and conditions
+                        </MyCheckbox>
+                    </div>
+                    <div>
+                        <button className="btn btn-primary" type="submit">Submit</button>
                     </div>
                 </Form>
             </div>
