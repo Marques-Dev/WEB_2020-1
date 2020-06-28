@@ -1,37 +1,34 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useFormik } from 'formik'
 
 export default () => {
 
-    const [values, setValues] = useState({firstName:'',lastName:'',email:''});
-
-    const handleChange = event => {
-        setValues(
-            {
-                ...values,
-                [event.target.name]: event.target.value
-            }
-        )//setValues
-    }//handleChange
-
-    const handleSubmit = (event) => {
-        console.log(values.firstName)
-        console.log(values.lastName)
-        console.log(values.email)
-        event.preventDefault()
-    }
+    const formik = useFormik({
+        initialValues: {
+            firstName: '',
+            lastName: '',
+            email: '',
+        },
+        onSubmit: values => {
+            //alert(JSON.stringify(values, null, 2));
+            console.log(values.firstName)
+            console.log(values.lastName)
+            console.log(values.email)
+        },
+    });
 
     return (
         <div>
-            <h1>Formulário Básico 04</h1>
-            <form onSubmit={handleSubmit}>
+            <h1>Formulário Básico 06</h1>
+            <form onSubmit={formik.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="firstName">First Name: </label>
                     <input
                         id="firstName"
                         name="firstName"
                         type="text"
-                        onChange={handleChange}
-                        value={values.firstName}
+                        onChange={formik.handleChange}
+                        value={formik.values.firstName}
                         className="form-control"
                     />
                 </div>
@@ -41,8 +38,8 @@ export default () => {
                         id="lastName"
                         name="lastName"
                         type="text"
-                        onChange={handleChange}
-                        value={values.lastName}
+                        onChange={formik.handleChange}
+                        value={formik.values.lastName}
                         className="form-control"
                     />
                 </div>
@@ -52,11 +49,11 @@ export default () => {
                         id="email"
                         name="email"
                         type="email"
-                        onChange={handleChange}
-                        value={values.email}
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
                         className="form-control"
                     />
-                    <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="email" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div>
                     <button className="btn btn-primary" type="submit">Submit</button>

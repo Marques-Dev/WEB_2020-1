@@ -45,7 +45,7 @@ const MyCheckbox = ({ children, ...props }) => {
 const MyRadio = ({ children, ...props }) => {
     const [field] = useField({ ...props, type: 'radio' });
     return (
-        <div className="form-check">
+        <div className="form-check" style={{ marginRight: '10px' }}>
             <input type="radio" {...field} {...props}
                 className="form-check-input"
             />
@@ -60,20 +60,26 @@ const MyRadioGroup = (props) => {
     const radiosJSX = props.radios.map(
         (radio, i) => {
             return (
-                <MyRadio name={radio.name} id={radio.id} value={radio.value} key={i}>
-                    {radio.label}
-                </MyRadio>
+                <td key={i}>
+                    <MyRadio name={radio.name} id={radio.id} value={radio.value}>
+                        {radio.label}
+                    </MyRadio>
+                </td>
             )
         }
     )
     return (
         <div className="form-group">
             {props.label}
-            {radiosJSX}
+            <table style={{ marginTop: '15px' }}>
+                <tbody>
+                    <tr>
+                        {radiosJSX}
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
     )
-
 }
 
 const MySelect = ({ label, ...props }) => {
@@ -163,69 +169,96 @@ export default () => {
                 }
             }
         >
-            <div>
-                <h1>Formulário Básico 14</h1>
-                <Form>
+            {
+                (props) => (
+                    <div className="card">
+                        <div className="card-header">Formulário Básico 15</div>
+                        <div className="card-body">
+                            <Form>
 
-                    <MyTextInput
-                        label="First Name"
-                        name="firstName"
-                        id="firstName"
-                        type="text"
-                        placeholder="Jane"
-                    />
+                                <div className="form-row">
+                                    <div className="col-md-6">
+                                        <MyTextInput
+                                            label="First Name"
+                                            name="firstName"
+                                            id="firstName"
+                                            type="text"
+                                            placeholder="Jane"
+                                        />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <MyTextInput
+                                            label="Last Name"
+                                            name="lastName"
+                                            id="lastName"
+                                            type="text"
+                                            placeholder="Doe"
+                                        />
+                                    </div>
+                                </div>
 
-                    <MyTextInput
-                        label="Last Name"
-                        name="lastName"
-                        id="lastName"
-                        type="text"
-                        placeholder="Doe"
-                    />
+                                <div className="form-row">
+                                    <div className="col-md-4">
+                                        <MyTextInput
+                                            label="Email Address"
+                                            name="email"
+                                            id="email"
+                                            type="email"
+                                            placeholder="jane@formik.com"
+                                        />
+                                    </div>
+                                    <div className="col-md-4">
+                                        <MySelect label="Job Type" name="job" id="job">
+                                            <option value="">Select a job type</option>
+                                            <option value="designer">Designer</option>
+                                            <option value="development">Developer</option>
+                                            <option value="product">Product Manager</option>
+                                            <option value="other">Other</option>
+                                        </MySelect>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <MyRadioGroup
+                                            label='Prefered programming language'
+                                            radios={[
+                                                { name: 'lang', id: 'java', value: 'java', label: 'Java' },
+                                                { name: 'lang', id: 'cpluscplus', value: 'cplusplus', label: 'C ++' },
+                                                { name: 'lang', id: 'python', value: 'python', label: 'Python' }
+                                            ]}
+                                        />
+                                    </div>
+                                </div>
 
-                    <MyTextInput
-                        label="Email Address"
-                        name="email"
-                        id="email"
-                        type="email"
-                        placeholder="jane@formik.com"
-                    />
+                                <div className="form-row">
 
-                    <MySelect label="Job Type" name="job" id="job">
-                        <option value="">Select a job type</option>
-                        <option value="designer">Designer</option>
-                        <option value="development">Developer</option>
-                        <option value="product">Product Manager</option>
-                        <option value="other">Other</option>
-                    </MySelect>
+                                    <div className="col-md-12">
+                                        <MyTextArea
+                                            label="Comments"
+                                            id="bigText"
+                                            name="bigText"
+                                            rows="10"
+                                            cols="50"
+                                            placeholder="Comment here..." />
+                                    </div>
+                                </div>
 
+                                <div className="form-row">
+                                    <div className="col-md-12">
+                                        <MyCheckbox name="read" id="read">
+                                            I accept the terms and conditions
+                            </MyCheckbox>
+                                    </div>
+                                </div>
 
-                    <MyRadioGroup
-                        label='Prefered programming language'
-                        radios={[
-                            { name: 'lang', id: 'java', value: 'java', label: 'Java' },
-                            { name: 'lang', id: 'cpluscplus', value: 'cplusplus', label: 'C ++' },
-                            { name: 'lang', id: 'python', value: 'python', label: 'Python' }
-                        ]}
-                    />
-
-                    <MyTextArea
-                        label="Comments"
-                        id="bigText"
-                        name="bigText"
-                        rows="10"
-                        cols="50"
-                        placeholder="Comment here..." />
-
-                    <MyCheckbox name="read" id="read">
-                        I accept the terms and conditions
-                    </MyCheckbox>
-
-                    <div>
-                        <button className="btn btn-primary" type="submit">Submit</button>
+                                <div className="form-row">
+                                    <div className="col-md-12">
+                                        <button className="btn btn-primary" type="submit" disabled={props.isSubmitting ? true : false}>Submit</button>
+                                    </div>
+                                </div>
+                            </Form>
+                        </div>
                     </div>
-                </Form>
-            </div>
+                )
+            }
 
         </Formik>
     )

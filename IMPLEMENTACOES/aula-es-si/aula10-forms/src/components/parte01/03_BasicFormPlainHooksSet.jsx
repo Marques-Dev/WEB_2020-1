@@ -65,7 +65,7 @@ export default () => {
                         value={email}
                         className="form-control"
                     />
-                    <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="email" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div>
                     <button className="btn btn-primary" type="submit">Submit</button>

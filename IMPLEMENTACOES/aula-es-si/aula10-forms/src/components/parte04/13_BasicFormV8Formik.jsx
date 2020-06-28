@@ -45,7 +45,7 @@ const MyCheckbox = ({ children, ...props }) => {
 const MyRadio = ({ children, ...props }) => {
     const [field] = useField({ ...props, type: 'radio' });
     return (
-        <div className="form-check" style={{marginRight:'10px'}}>
+        <div className="form-check">
             <input type="radio" {...field} {...props}
                 className="form-check-input"
             />
@@ -55,32 +55,6 @@ const MyRadio = ({ children, ...props }) => {
         </div>
     );
 };
-
-const MyRadioGroup = (props) => {
-    const radiosJSX = props.radios.map(
-        (radio, i) => {
-            return (
-                <td key={i}>
-                    <MyRadio name={radio.name} id={radio.id} value={radio.value}>
-                        {radio.label}
-                    </MyRadio>
-                </td>
-            )
-        }
-    )
-    return (
-        <div className="form-group">
-            {props.label}
-            <table style={{marginTop:'15px'}}>
-                <tbody>
-                    <tr>
-                        {radiosJSX}
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
-}
 
 const MySelect = ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -158,10 +132,10 @@ export default () => {
                             console.log(values.firstName)
                             console.log(values.lastName)
                             console.log(values.email)
+                            console.log(values.read)
                             console.log(values.job)
                             console.log(values.lang)
                             console.log(values.bigText)
-                            console.log(values.read)
                             setSubmitting(false)
                         },
                         200
@@ -169,92 +143,80 @@ export default () => {
                 }
             }
         >
-            <div className="card">
-                <div className="card-header">Formulário Básico 15</div>
-                <div className="card-body">
-                <Form>
-
-                    <div className="form-row">
-                        <div className="col-md-6">
-                            <MyTextInput
-                                label="First Name"
-                                name="firstName"
-                                id="firstName"
-                                type="text"
-                                placeholder="Jane"
-                            />
-                        </div>
-                        <div className="col-md-6">
-                            <MyTextInput
-                                label="Last Name"
-                                name="lastName"
-                                id="lastName"
-                                type="text"
-                                placeholder="Doe"
-                            />
-                        </div>
+            {
+                (props) => (
+                    <div>
+                        <h1>Formulário Básico 13</h1>
+                        <Form>
+                            <div>
+                                <MyTextInput
+                                    label="First Name"
+                                    name="firstName"
+                                    id="firstName"
+                                    type="text"
+                                    placeholder="Jane"
+                                />
+                            </div>
+                            <div>
+                                <MyTextInput
+                                    label="Last Name"
+                                    name="lastName"
+                                    id="lastName"
+                                    type="text"
+                                    placeholder="Doe"
+                                />
+                            </div>
+                            <div>
+                                <MyTextInput
+                                    label="Email Address"
+                                    name="email"
+                                    id="email"
+                                    type="email"
+                                    placeholder="jane@formik.com"
+                                />
+                            </div>
+                            <div>
+                                <MySelect label="Job Type" name="job" id="job">
+                                    <option value="">Select a job type</option>
+                                    <option value="designer">Designer</option>
+                                    <option value="development">Developer</option>
+                                    <option value="product">Product Manager</option>
+                                    <option value="other">Other</option>
+                                </MySelect>
+                            </div>
+                            <div className="form-group">
+                                Prefered programming language:
+                                <MyRadio name="lang" id="java" value="java">
+                                    Java
+                                </MyRadio>
+                                <MyRadio name="lang" id="cplusplus" value="cplusplus">
+                                    C++
+                                </MyRadio>
+                                <MyRadio name="lang" id="python" value="python">
+                                    Python
+                                </MyRadio>
+                            </div>
+                            <div>
+                                <MyTextArea
+                                    label="Comments"
+                                    id="bigText"
+                                    name="bigText"
+                                    rows="10"
+                                    cols="50"
+                                    placeholder="Comment here..." />
+                            </div>
+                            <div>
+                                <MyCheckbox name="read" id="read">
+                                    I accept the terms and conditions
+                        </MyCheckbox>
+                            </div>
+                            <div>
+                                <button className="btn btn-primary" type="submit" disabled={props.isSubmitting ? true : false}>Submit</button>
+                            </div>
+                        </Form>
                     </div>
-
-                    <div className="form-row">
-                        <div className="col-md-4">
-                            <MyTextInput
-                                label="Email Address"
-                                name="email"
-                                id="email"
-                                type="email"
-                                placeholder="jane@formik.com"
-                            />
-                        </div>
-                        <div className="col-md-4">
-                            <MySelect label="Job Type" name="job" id="job">
-                                <option value="">Select a job type</option>
-                                <option value="designer">Designer</option>
-                                <option value="development">Developer</option>
-                                <option value="product">Product Manager</option>
-                                <option value="other">Other</option>
-                            </MySelect>
-                        </div>
-                        <div className="col-md-4">
-                            <MyRadioGroup
-                                label='Prefered programming language'
-                                radios={[
-                                    { name: 'lang', id: 'java', value: 'java', label: 'Java' },
-                                    { name: 'lang', id: 'cpluscplus', value: 'cplusplus', label: 'C ++' },
-                                    { name: 'lang', id: 'python', value: 'python', label: 'Python' }
-                                ]}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="form-row">
-
-                        <div className="col-md-12">
-                            <MyTextArea
-                                label="Comments"
-                                id="bigText"
-                                name="bigText"
-                                rows="10"
-                                cols="50"
-                                placeholder="Comment here..." />
-                        </div>
-                    </div>
-
-                    <div className="form-row">
-                        <div className="col-md-12">
-                            <MyCheckbox name="read" id="read">
-                                I accept the terms and conditions
-                            </MyCheckbox>
-                        </div>
-                    </div>
-
-                    <div className="form-row">
-                        <div className="col-md-12">
-                            <button className="btn btn-primary" type="submit">Submit</button>
-                        </div>
-                    </div>
-                </Form>
-                </div>
-            </div>
+                )
+            }
 
         </Formik>
     )

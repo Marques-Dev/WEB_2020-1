@@ -53,7 +53,7 @@ export default () => {
                                     {...formik.getFieldProps('firstName')}
                                 />
                                 {formik.touched.firstName && formik.errors.firstName ? <div className="invalid-feedback">{formik.errors.firstName}</div> : null}
-                            </div> 
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last Name: </label>
                                 <input
@@ -76,7 +76,7 @@ export default () => {
                                 {formik.touched.email && formik.errors.email ? <div className="invalid-feedback">{formik.errors.email}</div> : null}
                             </div>
                             <div>
-                                <button className="btn btn-primary" type="submit">Submit</button>
+                                <button className="btn btn-primary" type="submit" disabled={formik.isSubmitting?true:false}>Submit</button>
                             </div>
                         </form>
                     </div>

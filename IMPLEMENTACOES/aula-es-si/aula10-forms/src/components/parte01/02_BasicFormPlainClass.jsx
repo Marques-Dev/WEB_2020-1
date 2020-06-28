@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class BasicFormPlainClassSet extends Component {
+export default class BasicFormPlainClass extends Component {
 
     constructor(props) {
         super(props)
@@ -10,30 +10,10 @@ export default class BasicFormPlainClassSet extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    setFirstName(firstName){
-        this.setState({firstName})
-    }
-    setLastName(lastName){
-        this.setState({lastName})
-    }
-    setEmail(email){
-        this.setState({email})
-    }
-
     handleChange(event) {
-        switch(event.target.name){
-            case 'firstName':
-                this.setFirstName(event.target.value)
-                break
-            case 'lastName':
-                this.setLastName(event.target.value)
-                break
-            case 'email':
-                this.setEmail(event.target.value)
-                break
-            default:
-                console.log('erro')
-        }
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     handleSubmit(event) {
@@ -46,7 +26,7 @@ export default class BasicFormPlainClassSet extends Component {
     render() {
         return (
             <div>
-                <h1>Formulário Básico 01</h1>
+                <h1>Formulário Básico 02</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="firstName">First Name: </label>
@@ -56,7 +36,7 @@ export default class BasicFormPlainClassSet extends Component {
                             type="text"
                             onChange={this.handleChange}
                             value={this.state.firstName}
-                            className="form-control" 
+                            className="form-control"
                         />
                     </div>
                     <div className="form-group">
@@ -70,7 +50,7 @@ export default class BasicFormPlainClassSet extends Component {
                             className="form-control"
                         />
                     </div>
-                    <div className="form-group"> 
+                    <div className="form-group">
                         <label htmlFor="email">Email Address: </label>
                         <input
                             id="email"
@@ -80,7 +60,7 @@ export default class BasicFormPlainClassSet extends Component {
                             value={this.state.email}
                             className="form-control"
                         />
-                        <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <small id="email" className="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div>
                         <button className="btn btn-primary" type="submit">Submit</button>
