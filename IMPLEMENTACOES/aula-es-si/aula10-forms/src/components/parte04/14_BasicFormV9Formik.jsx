@@ -221,7 +221,7 @@ export default () => {
 
                             <MyCheckbox name="read" id="read">
                                 I accept the terms and conditions
-                    </MyCheckbox>
+                            </MyCheckbox>
 
                             <div>
                                 <button className="btn btn-primary" type="submit" disabled={props.isSubmitting ? true : false}>Submit</button>

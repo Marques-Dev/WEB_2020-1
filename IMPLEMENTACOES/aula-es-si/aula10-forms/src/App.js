@@ -14,8 +14,8 @@ import './App.css'
 //import BasicForm from './components/parte03/11_BasicFormV6Formik' 
 //import BasicForm from './components/parte03/12_BasicFormV7Formik' 
 //import BasicForm from './components/parte04/13_BasicFormV8Formik'
-//import BasicForm from './components/parte04/14_BasicFormV9Formik'
-import BasicForm from './components/parte04/15_BasicFormV10Formik'
+import BasicForm from './components/parte04/14_BasicFormV9Formik'
+//import BasicForm from './components/parte04/15_BasicFormV10Formik'
 
 function App() {
   return (
