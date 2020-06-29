@@ -37,10 +37,10 @@ export default class BasicFormPlainClassSet extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault() //https://codepen.io/pen/?&editable=true=https%3A%2F%2Fdeveloper.mozilla.org%2Fpt-BR%2Fdocs%2FWeb%2FAPI%2FEvent%2FpreventDefault
         console.log(this.state.firstName)
         console.log(this.state.lastName)
         console.log(this.state.email)
-        event.preventDefault()
     }
 
     render() {

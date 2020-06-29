@@ -23,10 +23,10 @@ export default () => {
     }//handleChange
 
     const handleSubmit = (event) => {
+        event.preventDefault()
         console.log(firstName)
         console.log(lastName)
         console.log(email)
-        event.preventDefault()
     }
 
     return (

@@ -12,15 +12,15 @@ export default class BasicFormPlainClass extends Component {
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Inicializador_Objeto#Nomes_de_propriedades_computados
         })
     }
 
     handleSubmit(event) {
+        event.preventDefault()
         console.log(this.state.firstName)
         console.log(this.state.lastName)
         console.log(this.state.email)
-        event.preventDefault()
     }
 
     render() {
