@@ -19,6 +19,82 @@ const MyTextInput = ({ label, ...props }) => {
     );
 };
 
+const MySelect = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <div className="form-group">
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <select {...field} {...props}
+                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
+            />
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback">{meta.error}</div>
+            ) : null}
+        </div>
+    );
+};
+
+const MyRadio = ({ children, ...props }) => {
+    const [field] = useField({ ...props, type: 'radio' });
+    return (
+        <div className="form-check" style={{ marginRight: '10px' }}>
+            <input type="radio" {...field} {...props}
+                className="form-check-input"
+            />
+            <label className="form-check-label" htmlFor={props.id}>
+                {children}
+            </label>
+        </div>
+    );
+};
+
+const MyRadioGroup = (props) => {
+    
+    const [, meta] = useField('lang');
+    
+    const radiosJSX = props.radios.map(
+        (radio, i) => {
+            return (
+                <td key={i}>
+                    <MyRadio name={radio.name} id={radio.id} value={radio.value}>
+                        {radio.label}
+                    </MyRadio>
+                </td>
+            )
+        }
+    )
+    return (
+        <div className="form-group">
+            {props.label}
+            <table style={{ marginTop: '15px' }}>
+                <tbody>
+                    <tr>
+                        {radiosJSX}
+                    </tr>
+                </tbody>
+            </table>
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback d-block">{meta.error}</div>
+            ) : null}
+        </div>
+    )
+}
+
+const MyTextArea = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <div className="form-group">
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <textarea {...field} {...props}
+                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+            />
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback">{meta.error}</div>
+            ) : null}
+        </div>
+    );
+};
+
 const MyCheckbox = ({ children, ...props }) => {
     // We need to tell useField what type of input this is
     // since React treats radios and checkboxes differently
@@ -42,75 +118,6 @@ const MyCheckbox = ({ children, ...props }) => {
     );
 };
 
-const MyRadio = ({ children, ...props }) => {
-    const [field] = useField({ ...props, type: 'radio' });
-    return (
-        <div className="form-check" style={{ marginRight: '10px' }}>
-            <input type="radio" {...field} {...props}
-                className="form-check-input"
-            />
-            <label className="form-check-label" htmlFor={props.id}>
-                {children}
-            </label>
-        </div>
-    );
-};
-
-const MyRadioGroup = (props) => {
-    const radiosJSX = props.radios.map(
-        (radio, i) => {
-            return (
-                <td key={i}>
-                    <MyRadio name={radio.name} id={radio.id} value={radio.value}>
-                        {radio.label}
-                    </MyRadio>
-                </td>
-            )
-        }
-    )
-    return (
-        <div className="form-group">
-            {props.label}
-            <table style={{ marginTop: '15px' }}>
-                <tbody>
-                    <tr>
-                        {radiosJSX}
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
-}
-
-const MySelect = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-        <div className="form-group">
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <select {...field} {...props}
-                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
-            />
-            {meta.touched && meta.error ? (
-                <div className="invalid-feedback">{meta.error}</div>
-            ) : null}
-        </div>
-    );
-};
-
-const MyTextArea = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-        <div className="form-group">
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <textarea {...field} {...props}
-                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
-            />
-            {meta.touched && meta.error ? (
-                <div className="invalid-feedback">{meta.error}</div>
-            ) : null}
-        </div>
-    );
-};
 
 export default () => {
     return (
@@ -122,7 +129,7 @@ export default () => {
                     email: '',
                     read: false,
                     job: '',
-                    lang: 'java',
+                    lang: '',
                     bigText: ''
                 }
             }
@@ -136,20 +143,20 @@ export default () => {
                 email: Yup.string()
                     .email('Invalid email address')
                     .required('Required'),
-                read: Yup.boolean()
-                    .required('Required')
-                    .oneOf([true], 'You must accept the terms and conditions.'),
                 job: Yup.string()
                     .oneOf(
                         ['designer', 'development', 'product', 'other'],
                         'Invalid Job Type'
                     )
                     .required('Required'),
+                lang: Yup.string()
+                    .required('Required'),
                 bigText: Yup.string()
                     .max(100, 'Must be 100 characters or less')
                     .required('Required'),
-                lang: Yup.string()
+                read: Yup.boolean()
                     .required('Required')
+                    .oneOf([true], 'You must accept the terms and conditions.')
             })}
             onSubmit={
                 (values, { setSubmitting }) => {
@@ -245,7 +252,7 @@ export default () => {
                                     <div className="col-md-12">
                                         <MyCheckbox name="read" id="read">
                                             I accept the terms and conditions
-                            </MyCheckbox>
+                                        </MyCheckbox>
                                     </div>
                                 </div>
 

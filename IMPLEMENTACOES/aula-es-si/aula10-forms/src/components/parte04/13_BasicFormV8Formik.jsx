@@ -5,11 +5,56 @@ import * as Yup from 'yup';
 const MyTextInput = ({ label, ...props }) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
     // which we can spread on <input> and also replace ErrorMessage entirely.
+    
     const [field, meta] = useField(props);
     return (
         <div className="form-group">
             <label htmlFor={props.id || props.name}>{label}</label>
             <input {...field} {...props}
+                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
+            />
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback">{meta.error}</div>
+            ) : null}
+        </div>
+    );
+};
+
+const MySelect = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <div className="form-group">
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <select {...field} {...props}
+                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
+            />
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback">{meta.error}</div>
+            ) : null}
+        </div>
+    );
+};
+
+const MyRadio = ({ children, ...props }) => {
+    const [field] = useField({ ...props, type: 'radio' });
+    return (
+        <div className="form-check">
+            <input type="radio" {...field} {...props}
+                className="form-check-input"
+            />
+            <label className="form-check-label" htmlFor={props.id}>
+                {children}
+            </label>
+        </div>
+    );
+};
+
+const MyTextArea = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+        <div className="form-group">
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <textarea {...field} {...props}
                 className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
             />
             {meta.touched && meta.error ? (
@@ -38,50 +83,6 @@ const MyCheckbox = ({ children, ...props }) => {
                     <div className="invalid-feedback">{meta.error}</div>
                 ) : null}
             </div>
-        </div>
-    );
-};
-
-const MyRadio = ({ children, ...props }) => {
-    const [field] = useField({ ...props, type: 'radio' });
-    return (
-        <div className="form-check">
-            <input type="radio" {...field} {...props}
-                className="form-check-input"
-            />
-            <label className="form-check-label" htmlFor={props.id}>
-                {children}
-            </label>
-        </div>
-    );
-};
-
-const MySelect = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-        <div className="form-group">
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <select {...field} {...props}
-                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
-            />
-            {meta.touched && meta.error ? (
-                <div className="invalid-feedback">{meta.error}</div>
-            ) : null}
-        </div>
-    );
-};
-
-const MyTextArea = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-        <div className="form-group">
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <textarea {...field} {...props}
-                className={meta.touched ? (meta.error ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control'}
-            />
-            {meta.touched && meta.error ? (
-                <div className="invalid-feedback">{meta.error}</div>
-            ) : null}
         </div>
     );
 };

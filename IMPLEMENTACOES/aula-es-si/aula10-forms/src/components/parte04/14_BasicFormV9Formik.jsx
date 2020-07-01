@@ -19,25 +19,17 @@ const MyTextInput = ({ label, ...props }) => {
     );
 };
 
-const MyCheckbox = ({ children, ...props }) => {
-    // We need to tell useField what type of input this is
-    // since React treats radios and checkboxes differently
-    // than inputs/select/textarea.
-    const [field, meta] = useField({ ...props, type: 'checkbox' });
-
+const MySelect = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
     return (
         <div className="form-group">
-            <div className="custom-control">
-                <input type="checkbox" {...field} {...props}
-                    className={meta.touched ? (meta.error ? 'custom-control-input is-invalid' : 'custom-control-input is-valid') : 'custom-control-input'}
-                />
-                <label className="custom-control-label" htmlFor={props.id || props.name}>
-                    {children}
-                </label>
-                {meta.touched && meta.error ? (
-                    <div className="invalid-feedback">{meta.error}</div>
-                ) : null}
-            </div>
+            <label htmlFor={props.id || props.name}>{label}</label>
+            <select {...field} {...props}
+                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
+            />
+            {meta.touched && meta.error ? (
+                <div className="invalid-feedback">{meta.error}</div>
+            ) : null}
         </div>
     );
 };
@@ -76,21 +68,6 @@ const MyRadioGroup = (props) => {
 
 }
 
-const MySelect = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    return (
-        <div className="form-group">
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <select {...field} {...props}
-                className={meta.touched ? (meta.error ? 'custom-select is-invalid' : 'custom-select is-valid') : 'custom-select'}
-            />
-            {meta.touched && meta.error ? (
-                <div className="invalid-feedback">{meta.error}</div>
-            ) : null}
-        </div>
-    );
-};
-
 const MyTextArea = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
@@ -102,6 +79,29 @@ const MyTextArea = ({ label, ...props }) => {
             {meta.touched && meta.error ? (
                 <div className="invalid-feedback">{meta.error}</div>
             ) : null}
+        </div>
+    );
+};
+
+const MyCheckbox = ({ children, ...props }) => {
+    // We need to tell useField what type of input this is
+    // since React treats radios and checkboxes differently
+    // than inputs/select/textarea.
+    const [field, meta] = useField({ ...props, type: 'checkbox' });
+
+    return (
+        <div className="form-group">
+            <div className="custom-control">
+                <input type="checkbox" {...field} {...props}
+                    className={meta.touched ? (meta.error ? 'custom-control-input is-invalid' : 'custom-control-input is-valid') : 'custom-control-input'}
+                />
+                <label className="custom-control-label" htmlFor={props.id || props.name}>
+                    {children}
+                </label>
+                {meta.touched && meta.error ? (
+                    <div className="invalid-feedback">{meta.error}</div>
+                ) : null}
+            </div>
         </div>
     );
 };
