@@ -377,7 +377,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			AULA 14 
+			AULA 14 - PARTE 01
 		</td>
 		<td>
 			https://youtu.be/2ZjYm5Lp6zI
@@ -400,21 +400,64 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Persistência do estado geral <br /> entre refreshes, confirmação de e-mail.
 		</td>
 	</tr>
-	<!--<tr>
+	<tr>
+		<td colspan="3" align="center"><b>React + Formulários + Formik</b></td>
+	</tr>
+	<tr>
 		<td>
-			AULA 14  - (PARTES 02/03/04/FINAL)
+			AULA 15 - PARTE 01
 		</td>
 		<td>
-			https://youtu.be/xvWly76qS3I <br />
-			https://youtu.be/8kbi9rqEJhY <br />
-			https://youtu.be/eQ5dW2rsn-Y <br />
-			https://youtu.be/qPAWTmvgGJ0
+			https://youtu.be/QvlHjgOEEC4
+		</td>
+		<td>
+			Formulários puros com classes e funções.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 15 - PARTE 02
+		</td>
+		<td>
+			Formik
+		</td>
+		<td>
+			https://youtu.be/ddb-t2JE-l4
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 15 - PARTE 03
+		</td>
+		<td>
+			Formik + Yup (validação)
+		</td>
+		<td>
+			https://youtu.be/fTb-T2RpUFM	
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 15 - PARTE 04
+		</td>
+		<td>
+			Formik + Yup (validação)
+		</td>
+		<td>
+			https://youtu.be/a1f__ce8P64
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AULA 15 - PARTE 04
+		</td>
+		<td>
+			Formik + Yup (validação) + Minicomponentes
+		</td>
+		<td>
 			
 		</td>
-		<td>
-			Persistência do estado geral <br /> entre refreshes, confirmação de e-mail.
-		</td>
-	</tr>-->
+	</tr>
 </table>
 
 
