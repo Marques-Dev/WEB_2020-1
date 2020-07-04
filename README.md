@@ -419,10 +419,10 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 15 - PARTE 02
 		</td>
 		<td>
-			Formik
+			https://youtu.be/ddb-t2JE-l4
 		</td>
 		<td>
-			https://youtu.be/ddb-t2JE-l4
+			Formik
 		</td>
 	</tr>
 	<tr>
@@ -430,32 +430,32 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			AULA 15 - PARTE 03
 		</td>
 		<td>
-			Formik + Yup (validação)
+			https://youtu.be/fTb-T2RpUFM
 		</td>
 		<td>
-			https://youtu.be/fTb-T2RpUFM	
+			Formik + Yup (validação)	
 		</td>
 	</tr>
 	<tr>
 		<td>
 			AULA 15 - PARTE 04
-		</td>
-		<td>
-			Formik + Yup (validação)
 		</td>
 		<td>
 			https://youtu.be/a1f__ce8P64
 		</td>
+		<td>
+			Formik + Yup (validação)
+		</td>
 	</tr>
 	<tr>
 		<td>
 			AULA 15 - PARTE 04
 		</td>
 		<td>
-			Formik + Yup (validação) + Minicomponentes
+			????	
 		</td>
 		<td>
-			?????
+			Formik + Yup (validação) + Minicomponentes
 		</td>
 	</tr>
 </table>
