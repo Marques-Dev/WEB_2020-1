@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import walkSprite from './player_walk.png'
+import { connect } from 'react-redux'
 
 function Player(props){
 
@@ -16,15 +16,16 @@ function Player(props){
                 height: '40px'
             }}
         > 
-            
         </div>
     )
+
 }
 
 function mapStateToProps(state){
     return {
-        position: state.player.position
+        position : state.player.position
     }
 }
+
 
 export default connect(mapStateToProps)(Player)
