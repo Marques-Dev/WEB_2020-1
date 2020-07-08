@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 function Player(props){
 
+
     return (
         <div
             style={{
@@ -11,7 +12,8 @@ function Player(props){
                 top: props.position[1],
                 left: props.position[0], 
                 backgroundImage: `url('${walkSprite}')`,
-                backgroundPosition:'0 0',
+                backgroundPosition: '0px 0px',
+                backgroundRepeat: 'no-repeat',
                 width: '40px',
                 height: '40px'
             }}

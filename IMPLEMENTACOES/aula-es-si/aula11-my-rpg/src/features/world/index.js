@@ -24,9 +24,6 @@ function World(props) {
         }
     }
 
-    /*window.addEventListener('keydown', (e) => {
-        handleKeyDown(e)
-    })*/
 
     return (
         <div
@@ -36,11 +33,10 @@ function World(props) {
                 height: '400px',
                 margin: '20px auto'
             }}
-            tabIndex='0'
+            tabIndex='-1'
             onKeyDown={
                 (e)=>{
                     e.preventDefault()
-                    console.log(e.keyCode)
                     handleKeyDown(e)
                 }
             }
