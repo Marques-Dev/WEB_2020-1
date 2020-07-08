@@ -471,17 +471,6 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			AULA 15 - PARTE 06
-		</td>
-		<td>
-			https://youtu.be/_ABa-bPoXIA
-		</td>
-		<td>
-			Formik + Yup (validação) + Minicomponentes
-		</td>
-	</tr>
-	<tr>
-		<td>
 			AULA 15 - PARTE 07
 		</td>
 		<td>
