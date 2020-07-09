@@ -1,7 +1,7 @@
 import { MOVE_PLAYER } from '../../config/constants'
 
 const initialState = {
-    position: [40,40]
+    position: [0,0]
 }
 
 const playerReducer = (state=initialState, action) => {
