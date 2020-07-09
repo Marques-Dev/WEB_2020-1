@@ -1,7 +1,6 @@
 export const SPRITE_SIZE = 40
 
 export const MOVE_PLAYER = 'MOVE_PLAYER'
-export const ADD_TILES = 'ADD_TILES'
 
 export const WEST = 'WEST'
 export const NORTH = 'NORTH'
