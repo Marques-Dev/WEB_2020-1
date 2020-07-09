@@ -7,6 +7,8 @@ import { WEST, EAST, NORTH, SOUTH } from '../../config/constants'
 import { connect } from 'react-redux'
 import { moveToPosition } from './movement'
 
+import { tiles } from '../../data/maps/1'
+
 
 function World(props) {
 
@@ -35,25 +37,25 @@ function World(props) {
             }}
             tabIndex='-1'
             onKeyDown={
-                (e)=>{
+                (e) => {
                     e.preventDefault()
                     handleKeyDown(e)
                 }
             }
         >
-            <Map/>
-            <Player/>
+            <Map tiles={tiles} />
+            <Player />
         </div>
     )
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        position : state.player.position
+        position: state.player.position
     }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
         moveToPosition(direction) {
             const action = moveToPosition(direction)
@@ -63,4 +65,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(World)
+export default connect(mapStateToProps, mapDispatchToProps)(World)
