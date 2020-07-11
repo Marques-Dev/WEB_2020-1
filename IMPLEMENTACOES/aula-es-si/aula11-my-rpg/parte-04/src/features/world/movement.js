@@ -1,4 +1,4 @@
-import { WEST, EAST, NORTH, SOUTH, SPRITE_SIZE, MOVE_PLAYER, MAP_HEIGHT, MAP_WIDTH, ROK, TRE } from '../../config/constants'
+import { WEST, EAST, NORTH, SOUTH, SPRITE_SIZE, MOVE_PLAYER, MAP_HEIGHT, MAP_WIDTH, ROK, TRE} from '../../config/constants'
 import store from '../../config/store'
 
 //action
@@ -35,33 +35,38 @@ export function moveToPosition(direction) {
         const x = position[0] / SPRITE_SIZE // o x do personagem na tela, é o j do obstáculo na matriz
         const y = position[1] / SPRITE_SIZE // o y do personagem na tela, é o i do obstáculo na matriz
         //console.log(`[${x},${y}]`)
-        if (tiles[y][x] === ROK || tiles[y][x] === TRE)
+        if (tiles[y][x] === ROK || tiles[y][x] === TRE) 
             return true
         return false
     }
-    
+
     function attemptMove(direction) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(direction)
-        return (
-            isPositionInsideBoundaries(newPos)
-                &&
-                !isObstacleColliding(newPos)
-                ? newPos : oldPos
+        return( 
+            isPositionInsideBoundaries(newPos) 
+            &&
+            !isObstacleColliding(newPos)
+            ? newPos : oldPos
         )
     }
 
-    function advanceStep() {
+    function advanceStep(){
         const step = store.getState().player.step
-        return (step + 1 === 8) ? 0 : step + 1
+        return (step + 1 === 8)? 0 : step + 1 
     }
 
-    return {
-        type: MOVE_PLAYER,
-        payload: {
-            position: attemptMove(direction),
-            facing: direction,
-            step: advanceStep()
+    function dispatchMove(direction) {
+        return {
+            type: MOVE_PLAYER,
+            payload: { 
+                position: attemptMove(direction),
+                facing: direction,
+                step: advanceStep()
+            }
         }
     }
+
+    return dispatchMove(direction)
+
 }

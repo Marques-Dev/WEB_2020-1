@@ -26,7 +26,6 @@ function Player(props) {
         }
     }
 
-    //console.log('render player')
     return (
         <div
             style={{

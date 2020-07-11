@@ -1,7 +1,7 @@
 import { WEST, EAST, NORTH, SOUTH, SPRITE_SIZE, MOVE_PLAYER, MAP_HEIGHT, MAP_WIDTH, ROK, TRE } from '../../config/constants'
 import store from '../../config/store'
 
-//action
+//action creator
 export function moveToPosition(direction) {
 
     function getNewPosition(direction) {
@@ -39,16 +39,18 @@ export function moveToPosition(direction) {
             return true
         return false
     }
-    
+
+
     function attemptMove(direction) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(direction)
-        return (
-            isPositionInsideBoundaries(newPos)
-                &&
-                !isObstacleColliding(newPos)
-                ? newPos : oldPos
-        )
+        if (isPositionInsideBoundaries(newPos) && !isObstacleColliding(newPos))
+        {
+           
+            return newPos
+        }
+            
+        return oldPos
     }
 
     function advanceStep() {
@@ -56,12 +58,17 @@ export function moveToPosition(direction) {
         return (step + 1 === 8) ? 0 : step + 1
     }
 
-    return {
-        type: MOVE_PLAYER,
-        payload: {
-            position: attemptMove(direction),
-            facing: direction,
-            step: advanceStep()
+    function dispatchMove(direction) {
+        return {
+            type: MOVE_PLAYER,
+            payload: {
+                position: attemptMove(direction),
+                facing: direction,
+                step: advanceStep()
+            }
         }
     }
+
+    return dispatchMove(direction)
+
 }

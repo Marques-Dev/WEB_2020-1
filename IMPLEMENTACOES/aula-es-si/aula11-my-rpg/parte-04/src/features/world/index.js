@@ -1,16 +1,18 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 import Player from '../player'
 import Map from '../map'
 
-import { WEST, EAST, NORTH, SOUTH } from '../../config/constants'
+import { WEST, EAST, NORTH, SOUTH, ADD_TILES } from '../../config/constants'
+import { connect } from 'react-redux'
 import { moveToPosition } from './movement'
-import { setTiles } from '../map/environment'
+
 import { tiles } from '../../data/maps/1'
 
 
 function World(props) {
+
+    props.setTiles(tiles)
 
     function handleKeyDown(e) {
         if (e.keyCode >= 37 && e.keyCode <= 40)
@@ -27,12 +29,7 @@ function World(props) {
             }
     }
 
-    //previne carregar o mapa toda vez que World é renderizado
-    if(props.tiles && props.tiles.length===0){
-        props.setTiles(tiles)
-    }
-        
-    //console.log('render world')
+
     return (
         <div
             style={{
@@ -72,8 +69,10 @@ function mapDispatchToProps(dispatch) {
             dispatch(action)
         },
         setTiles(tiles) {
-           const action = setTiles(tiles)
-           dispatch(action)
+            dispatch({
+                type: ADD_TILES,
+                payload: tiles
+            })
         }
     }
 }

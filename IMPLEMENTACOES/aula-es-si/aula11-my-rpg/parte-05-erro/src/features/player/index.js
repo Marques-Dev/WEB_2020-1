@@ -25,8 +25,7 @@ function Player(props) {
                 console.log('INVALID FACING')
         }
     }
-
-    //console.log('render player')
+    console.log('render player')
     return (
         <div
             style={{

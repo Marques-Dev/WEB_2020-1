@@ -1,4 +1,4 @@
-import { SET_TILES } from '../../config/constants'
+import { ADD_TILES } from '../../config/constants'
 
 const initialState = {
     tiles: []
@@ -6,7 +6,7 @@ const initialState = {
 
 const mapReducer = (state=initialState, action) => {
     switch(action.type){
-        case SET_TILES:
+        case ADD_TILES:
             return {
                 ...state,
                 tiles: action.payload
