@@ -1,7 +1,7 @@
 import { MOVE_PLAYER, SOUTH } from '../../config/constants'
 
 const initialState = {
-    position: [40,40],
+    position: [80,80],
     facing: SOUTH,
     step: 0 // 0 to 7
 }
