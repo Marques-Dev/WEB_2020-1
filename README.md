@@ -449,16 +449,16 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 	</tr>
 	<tr>
 		<td>
-			AULA 15 - PARTE 05
+			AULA 15 - PARTE FINAL
 		</td>
 		<td>
-			https://youtu.be/G7LtFQf1Rwg
+			https://youtu.be/VEMbQxgLVHw
 		</td>
 		<td>
 			Formik + Yup (validação) + Minicomponentes
 		</td>
 	</tr>
-	<tr>
+<!--	<tr>
 		<td>
 			AULA 15 - PARTE 06
 		</td>
@@ -491,7 +491,7 @@ Clique <a href="https://forms.gle/RD1sdBEVzr1Uqt47A">AQUI</a> para responder um 
 			Formik + Yup (validação) + Minicomponentes
 		</td>
 	</tr>
-
+-->
 </table>
 
 
